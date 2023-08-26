@@ -1,9 +1,15 @@
 {
   "private": true,
   "main": "main/index.js",
-  "productName": "ElectronTypescriptNext",
+  "productName": "Electron Typescript Next",
   "name": "electron-typescript-next",
   "version": "1.0.0",
+  "description": "Aplicação ElectronJS com NextJS e typescript",
+  "author": {
+    "name": "Saulo Costa",
+    "email": "saulotarsobc@gmail.com",
+    "url": "https://github.com/saulotarsobc/electron-next-ts"
+  },
   "scripts": {
     "clean": "rimraf dist main renderer/out renderer/.next",
     "dev": "npm run build-electron && electron .",
