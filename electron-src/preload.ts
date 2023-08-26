@@ -10,8 +10,8 @@ declare global {
   }
 }
 
-// Since we disabled nodeIntegration we can reintroduce
-// needed node functionality here
+// Como desabilitamos o nodeIntegration, podemos reintroduzir
+// funcionalidade necessária do nó aqui
 process.once("loaded", () => {
   (global as any).ipcRenderer = ipcRenderer;
 });
