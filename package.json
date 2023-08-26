@@ -1,10 +1,11 @@
 {
   "private": true,
   "main": "main/index.js",
-  "productName": "Electron Typescript Next",
+  "productName": "SC - Electron Typescript Next",
   "name": "electron-typescript-next",
-  "version": "1.0.0",
   "description": "Aplicação ElectronJS com NextJS e typescript",
+  "icon": "build/icon.png",
+  "version": "1.0.0",
   "author": {
     "name": "Saulo Costa",
     "email": "saulotarsobc@gmail.com",
