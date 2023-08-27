@@ -12,14 +12,14 @@ app.on("ready", async () => {
   await prepareNext("./renderer");
 
   const mainWindow = new BrowserWindow({
-    // width: 800,
-    // height: 600,
+    width: 800,
+    height: 600,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,
       preload: join(__dirname, "preload.js"),
     },
-    autoHideMenuBar: false,
+    autoHideMenuBar: true,
   });
 
   const url = isDev
@@ -36,8 +36,10 @@ app.on("ready", async () => {
 // Quit the app once all windows are closed
 app.on("window-all-closed", app.quit);
 
-// listen the channel `message` and resend the received message to the renderer process
-ipcMain.on("message", (event: IpcMainEvent, message: any) => {
-  console.log(message);
-  setTimeout(() => event.sender.send("message", "hi from electron"), 500);
+// "ouvindo" o canal  `test`
+ipcMain.on("test", (_event: IpcMainEvent, _message: any) => {
+  console.log(_message, "pong");
+
+  // exemplo de como enviar dados para o front
+  // setTimeout(() => event.sender.send("message", "hi from electron"), 500);
 });

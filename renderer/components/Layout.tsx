@@ -1,6 +1,4 @@
 import React, { ReactNode } from "react";
-import { productName } from "../../package.json";
-
 import Header from "./Header";
 import Footer from "./Footer";
 import HeadComponent from "./Head";
@@ -10,9 +8,9 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({ children, title = productName }: Props) => (
+const Layout = ({ children }: Props) => (
   <div>
-    <HeadComponent title={title} />
+    <HeadComponent />
     <Header />
     {children}
     <Footer />
