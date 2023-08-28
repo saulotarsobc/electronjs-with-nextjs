@@ -1,5 +1,14 @@
 # Electron + Typescript + Next
 
+## How to use
+
+```sh
+git clone https://github.com/saulotarsobc/electron-next-ts.git;
+cd electron-next-ts;
+yarn install;
+yarn dev;
+```
+
 ## Scripts
 
 ```json
