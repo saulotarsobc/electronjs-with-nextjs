@@ -6,23 +6,27 @@ import { format } from "url";
 import { BrowserWindow, app, ipcMain, IpcMainEvent } from "electron";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
-import { getWinSettings } from "./Storage";
-
-console.log(getWinSettings)
+import { getWinSettings, setWinSettings } from "./Storage";
 
 // Prepare the frontend once the app is ready
 app.on("ready", async () => {
   await prepareNext("./frontend");
 
+  const winSize = getWinSettings();
+
   const mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
+    height: winSize.h,
+    width: winSize.w,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,
       preload: join(__dirname, "preload.js"),
     },
     autoHideMenuBar: true,
+  });
+
+  mainWindow.on("resize", () => {
+    setWinSettings(mainWindow.getSize());
   });
 
   const url = isDev
