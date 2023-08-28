@@ -9,6 +9,7 @@ import prepareNext from "electron-next";
 import { getWinSettings, setWinSettings } from "./Storage";
 
 // Prepare the frontend once the app is ready
+// Prepare o frontend quando o aplicativo estiver pronto
 app.on("ready", async () => {
   await prepareNext("./frontend");
 
@@ -17,9 +18,11 @@ app.on("ready", async () => {
   const mainWindow = new BrowserWindow({
     height: winSize.h,
     width: winSize.w,
+    minHeight: 400,
+    minWidth: 400,
     webPreferences: {
       nodeIntegration: false,
-      contextIsolation: false,
+      contextIsolation: true,
       preload: join(__dirname, "preload.js"),
     },
     autoHideMenuBar: true,
@@ -46,12 +49,11 @@ app.on("ready", async () => {
 });
 
 // Quit the app once all windows are closed
+// Saia do aplicativo quando todas as janelas estiverem fechadas
 app.on("window-all-closed", app.quit);
 
+// "listening" to the `test` channel
 // "ouvindo" o canal  `test`
 ipcMain.on("test", (_event: IpcMainEvent, _message: any) => {
   console.log(_message, "pong");
-
-  // exemplo de como enviar dados para o front
-  // setTimeout(() => _event.sender.send("message", "hi from electron"), 500);
 });
