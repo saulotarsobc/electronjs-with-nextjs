@@ -6,14 +6,17 @@ import { format } from "url";
 import { BrowserWindow, app, ipcMain, IpcMainEvent } from "electron";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
+import { getWinSettings } from "./Storage";
+
+console.log(getWinSettings)
 
 // Prepare the frontend once the app is ready
 app.on("ready", async () => {
   await prepareNext("./frontend");
 
   const mainWindow = new BrowserWindow({
-    width: 800,
     height: 600,
+    width: 800,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,
