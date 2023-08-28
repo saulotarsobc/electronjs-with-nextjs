@@ -12,14 +12,14 @@
     "url": "https://github.com/saulotarsobc/electron-next-ts"
   },
   "scripts": {
-    "clean": "rimraf dist main renderer/out renderer/.next",
+    "clean": "rimraf dist main frontend/out frontend/.next",
     "dev": "npm run build-electron && electron .",
-    "build-renderer": "next build renderer",
-    "build-electron": "tsc -p electron-src",
-    "build": "npm run build-renderer && npm run build-electron",
-    "pack-app": "npm run build-renderer && npm run build-electron && npm run build && electron-builder --dir",
+    "build-frontend": "next build frontend",
+    "build-electron": "tsc -p electron",
+    "build": "npm run build-frontend && npm run build-electron",
+    "pack-app": "npm run build-frontend && npm run build-electron && npm run build && electron-builder --dir",
     "dist": "npm run build && electron-builder",
-    "type-check": "tsc -p ./renderer/tsconfig.json && tsc -p ./electron-src/tsconfig.json"
+    "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./electron/tsconfig.json"
   },
   "dependencies": {
     "electron-is-dev": "^2.0.0",
@@ -41,7 +41,7 @@
     "asar": true,
     "files": [
       "main",
-      "renderer/out"
+      "frontend/out"
     ]
   }
 }

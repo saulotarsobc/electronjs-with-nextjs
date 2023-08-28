@@ -7,9 +7,9 @@ import { BrowserWindow, app, ipcMain, IpcMainEvent } from "electron";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
 
-// Prepare the renderer once the app is ready
+// Prepare the frontend once the app is ready
 app.on("ready", async () => {
-  await prepareNext("./renderer");
+  await prepareNext("./frontend");
 
   const mainWindow = new BrowserWindow({
     width: 800,
@@ -25,10 +25,15 @@ app.on("ready", async () => {
   const url = isDev
     ? "http://localhost:8000/"
     : format({
-        pathname: join(__dirname, "../renderer/out/index.html"),
-        protocol: "file:",
-        slashes: true,
-      });
+      pathname: join(__dirname, "../frontend/out/index.html"),
+      protocol: "file:",
+      slashes: true,
+    });
+
+  // abre o devtools
+  if (isDev) {
+    mainWindow.webContents.openDevTools();
+  }
 
   mainWindow.loadURL(url);
 });
@@ -41,5 +46,5 @@ ipcMain.on("test", (_event: IpcMainEvent, _message: any) => {
   console.log(_message, "pong");
 
   // exemplo de como enviar dados para o front
-  // setTimeout(() => event.sender.send("message", "hi from electron"), 500);
+  // setTimeout(() => _event.sender.send("message", "hi from electron"), 500);
 });

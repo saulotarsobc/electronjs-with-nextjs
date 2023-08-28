@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Header from "../components/Header";
 
 export default function Index() {
   const ping = () => {
@@ -6,9 +6,10 @@ export default function Index() {
   };
 
   return (
-    <Layout>
+    <>
+      <Header />
       <h1>Home</h1>
       <button onClick={ping}>PING</button>
-    </Layout>
+    </>
   );
 }

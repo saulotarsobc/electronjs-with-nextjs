@@ -9,8 +9,8 @@
 /coverage
 
 # next.js
-renderer/out/
-renderer/.next/
+frontend/out/
+frontend/.next/
 
 # production
 /dist

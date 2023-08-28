@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/Layout";
+import Header from "../components/Header";
 
 export default function page2() {
   const ping = () => {
@@ -7,10 +7,12 @@ export default function page2() {
   };
 
   return (
-    <Layout>
-      <h1>Pagina 2</h1>
-
-      <button onClick={ping}>Testa o ping tbm</button>
-    </Layout>
+    <>
+      <Header />
+      <div>
+        <h1>Pagina 2</h1>
+        <button onClick={ping}>Testa o ping tbm</button>
+      </div>
+    </>
   );
 }
