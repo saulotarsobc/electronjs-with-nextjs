@@ -11,11 +11,7 @@ declare global {
 }
 
 const API = {
-  ping: () => { ipcRenderer.send("test", { msg: "enviado ping para o main" }) },
-
-  chooseFiles: () => {
-    return ipcRenderer.sendSync("chooseFiles");
-  }
+  chooseFiles: () => ipcRenderer.sendSync("chooseFiles"),
 }
 
 process.once("loaded", () => {

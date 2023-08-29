@@ -22,7 +22,6 @@ app.on("ready", async () => {
     width: winSize.w,
     minHeight: 400,
     minWidth: 400,
-    backgroundMaterial: "acrylic",
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,
