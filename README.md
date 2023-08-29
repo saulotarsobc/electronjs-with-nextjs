@@ -5,6 +5,10 @@
 ### Context Isolation
 
 > O Context Isolation (Isolamento de Contexto) é um recurso que garante que tanto os seus scripts do preload quanto a lógica interna do Electron sejam executados em um `contexto separado` para a pagina que você carregar em um webContent. Isso é importante por `questões de segurança`, pois ajuda a `impedir` que a pagina web acesse os módulos internos do Electron ou aos privelégios de APIs que seu script de preload tem acesso.
+>
+> Isto significa que o objeto window ao qual seu script de preload tem acesso seja realmente um objeto diferente do qual a sua pagina web teria acesso. For example, if you set window.hello = 'wave' in your preload script and context isolation is enabled, window.hello will be undefined if the website tries to access it.
+>
+> Context isolation has been enabled by default since Electron 12, and it is a recommended security setting for all applications.
 
 ## Como usar
 
