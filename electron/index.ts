@@ -9,8 +9,6 @@ import prepareNext from "electron-next";
 import { getWinSettings, setWinSettings } from "./Storage";
 import { dialog } from "electron/main";
 
-export let mainWindow: any;
-
 // Prepare the frontend once the app is ready
 // Prepare o frontend quando o aplicativo estiver pronto
 app.on("ready", async () => {
@@ -18,7 +16,7 @@ app.on("ready", async () => {
 
   const winSize = getWinSettings();
 
-  mainWindow = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     height: winSize.h,
     width: winSize.w,
     minHeight: 400,
