@@ -5,11 +5,12 @@ export default function Index() {
   const [Files, setFiles] = useState(":-)");
 
   const ping = () => {
-    global.ipcRenderer.send("test", { msg: "enviado ping para o main" });
+    // global.ipcRenderer.send("test", { msg: "enviado ping para o main" });
+    global.API.ping();
   };
 
   const chooseFiles = () => {
-    const data = global.ipcRenderer.sendSync("chooseFiles");
+    const data = global.API.chooseFiles();
     setFiles(data);
   };
 
