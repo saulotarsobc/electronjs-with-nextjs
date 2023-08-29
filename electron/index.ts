@@ -24,8 +24,8 @@ app.on("ready", async () => {
     minHeight: 400,
     minWidth: 400,
     webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: false,
+      // nodeIntegration: false,
+      // contextIsolation: false,
       preload: join(__dirname, "preload.js"),
     },
     autoHideMenuBar: true,
