@@ -3,11 +3,12 @@ import { join } from "path";
 import { format } from "url";
 
 // Packages
-import { BrowserWindow, app, ipcMain, IpcMainEvent } from "electron";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
+
+// Modules
+import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
 import { getWinSettings, setWinSettings } from "./Storage";
-import { dialog } from "electron/main";
 
 // Prepare the frontend once the app is ready
 // Prepare o frontend quando o aplicativo estiver pronto
@@ -21,6 +22,7 @@ app.on("ready", async () => {
     width: winSize.w,
     minHeight: 400,
     minWidth: 400,
+    backgroundMaterial: "acrylic",
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: false,
@@ -34,11 +36,12 @@ app.on("ready", async () => {
 
   mainWindow.setMenu(null);
 
+  // open devtools
   // abre o devtools
   if (isDev) mainWindow.webContents.openDevTools()
 
   mainWindow.loadURL((isDev
-    ? "http://localhost:8000/"
+    ? `http://localhost:8000/`
     : format({
       pathname: join(__dirname, "../frontend/out/index.html"),
       protocol: "file:",
