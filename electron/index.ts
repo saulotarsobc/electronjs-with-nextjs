@@ -24,16 +24,17 @@ app.on("ready", async () => {
     minHeight: 400,
     minWidth: 400,
     webPreferences: {
-      // nodeIntegration: false,
-      // contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: false,
       preload: join(__dirname, "preload.js"),
     },
-    autoHideMenuBar: true,
   });
 
   mainWindow.on("resize", () => {
     setWinSettings(mainWindow.getSize());
   });
+
+  mainWindow.setMenu(null)
 
   const url = isDev
     ? "http://localhost:8000/"
@@ -50,12 +51,8 @@ app.on("ready", async () => {
 
   mainWindow.loadURL(url);
 
-  /* ipc listeners */
-  ipcMain.on('ping-pong-sync', (event, arg) => {
-    event.returnValue = `[ipcMain] "${arg}" received synchronously.`;
-  });
-
-  ipcMain.on('chooseFiles', (event, _arg) => {
+  // ipc listeners
+  ipcMain.on('chooseFiles', (event) => {
     dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] })
       .then((result: any) => {
         event.returnValue = result.filePaths;
