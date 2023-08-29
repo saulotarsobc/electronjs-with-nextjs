@@ -58,14 +58,10 @@ app.on("ready", async () => {
   ipcMain.on('chooseFiles', (event, _arg) => {
     dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] })
       .then((result: any) => {
-        console.log(result.canceled)
-        console.log(result.filePaths)
         event.returnValue = result.filePaths;
       }).catch((err: Error) => {
-        console.log(err.message)
         event.returnValue = err.message;
-      })
-
+      });
   });
 });
 
