@@ -32,22 +32,18 @@ app.on("ready", async () => {
     setWinSettings(mainWindow.getSize());
   });
 
-  mainWindow.setMenu(null)
+  mainWindow.setMenu(null);
 
-  const url = isDev
+  // abre o devtools
+  if (isDev) mainWindow.webContents.openDevTools()
+
+  mainWindow.loadURL((isDev
     ? "http://localhost:8000/"
     : format({
       pathname: join(__dirname, "../frontend/out/index.html"),
       protocol: "file:",
       slashes: true,
-    });
-
-  // abre o devtools
-  if (isDev) {
-    mainWindow.webContents.openDevTools();
-  }
-
-  mainWindow.loadURL(url);
+    })));
 
   // ipc listeners
   ipcMain.on('chooseFiles', (event) => {
