@@ -10,7 +10,6 @@ import prepareNext from "electron-next";
 import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
 import { getWinSettings, setWinSettings } from "./Storage";
 
-
 const createWindow = () => {
 	const winSize = getWinSettings();
 
@@ -43,7 +42,6 @@ const createWindow = () => {
 			protocol: "file:",
 			slashes: true,
 		})));
-
 }
 
 // Prepare the frontend once the app is ready
