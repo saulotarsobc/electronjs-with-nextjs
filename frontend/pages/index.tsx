@@ -1,13 +1,12 @@
 import Header from "../components/Header";
 import { useState } from "react";
 
+const { API } = global as any;
+
+console.log(API);
+
 export default function Index() {
   const [Files, setFiles] = useState(":-)");
-
-  const chooseFiles = () => {
-    const data = global.API.chooseFiles();
-    setFiles(data);
-  };
 
   return (
     <>
@@ -16,7 +15,14 @@ export default function Index() {
 
       <hr />
       <h2>{Files}</h2>
-      <button onClick={chooseFiles}>Escolher arquivos</button>
+      <button
+        onClick={() => {
+          const data = API.chooseFiles();
+          setFiles(data);
+        }}
+      >
+        Escolher arquivos
+      </button>
     </>
   );
 }

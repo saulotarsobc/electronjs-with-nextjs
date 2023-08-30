@@ -21,7 +21,7 @@
     "strict": true,
     "target": "esnext",
     "outDir": "../main",
-    "removeComments": true,
+    "removeComments": true
   },
   "exclude": [
     "node_modules"

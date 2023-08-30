@@ -28,14 +28,14 @@ yarn dev;
 ## Scripts
 
 ```json
-"scripts": {
+  "scripts": {
     "clean": "rimraf dist main frontend/out frontend/.next",
     "dev": "npm run build-electron && electron .",
     "build-frontend": "next build frontend",
-    "build-electron": "tsc -p electron",
+    "build-electron": "tsc -p backend",
     "build": "npm run build-frontend && npm run build-electron",
     "pack-app": "npm run build-frontend && npm run build-electron && npm run build && electron-builder --dir",
     "dist": "npm run build && electron-builder",
-    "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./electron/tsconfig.json"
+    "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json"
   },
 ```
