@@ -1,6 +1,6 @@
 # Electron + Typescript + Next
 
-## Documentção
+## Electron Docmentation
 
 ### Context Isolation
 
