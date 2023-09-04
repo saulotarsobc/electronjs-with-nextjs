@@ -1,15 +1,15 @@
 {
   "private": true,
   "main": "main/index.js",
-  "productName": "SC - Zoom Scheduler",
-  "name": "sc-zoom-scheduler",
-  "description": "Aplicação ElectronJS com NextJS e typescript para agendar cadastrar suas reuniõs via zoom",
+  "productName": "SC - Electron Typescript Next",
+  "name": "electron-typescript-next",
+  "description": "Aplicação ElectronJS com NextJS e typescript",
   "icon": "build/icon.png",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "author": {
     "name": "Saulo Costa",
     "email": "saulotarsobc@gmail.com",
-    "url": "https://github.com/saulotarsobc/SC-Zoom-Scheduler"
+    "url": "https://github.com/saulotarsobc/electron-next-ts"
   },
   "scripts": {
     "clean": "rimraf dist main frontend/out frontend/.next",
@@ -21,19 +21,13 @@
     "dist": "npm run build && electron-builder",
     "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json"
   },
-  "license": "MIT",
-  "engines": {
-    "node": ">= 10",
-    "yarn": ">= 1.9"
-  },
   "dependencies": {
     "electron-is-dev": "^2.0.0",
     "electron-next": "^3.1.5",
     "electron-store": "^8.1.0",
+    "esbuild": "^0.19.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sequelize": "^6.32.1",
-    "sqlite3": "^5.1.6"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.5.6",
@@ -43,8 +37,7 @@
     "electron-builder": "^24.6.3",
     "minify-ts": "^1.1.5",
     "next": "^13.4.19",
-    "rimraf": "^5.0.1",
-    "sass": "^1.66.1"
+    "rimraf": "^5.0.1"
   },
   "build": {
     "asar": true,
