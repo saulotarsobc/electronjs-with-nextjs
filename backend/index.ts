@@ -1,14 +1,14 @@
-// Native
-import { join } from "path";
-import { format } from "url";
-
-// Packages
+// Modules
+import { BrowserWindow, app, ipcMain, IpcMainEvent } from "electron";
+import { getWinSettings, setWinSettings } from "./ElectronStore";
+import { Meeting, sequelize } from "./database";
+import { getPath } from "./utils";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
 
-// Modules
-import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
-import { getWinSettings, setWinSettings } from "./Storage";
+// Native
+import { join } from "path";
+import { format } from "url";
 
 const createWindow = () => {
 	const winSize = getWinSettings();
@@ -55,12 +55,58 @@ app.on("ready", async () => {
 // Saia do aplicativo quando todas as janelas estiverem fechadas
 app.on("window-all-closed", app.quit);
 
-// code
-ipcMain.on('chooseFiles', (event: IpcMainEvent) => {
-	dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] })
-		.then((result: any) => {
-			event.returnValue = result.filePaths;
-		}).catch((err: Error) => {
-			event.returnValue = err.message;
+// ++++++++++ code ++++++++++
+// sync db
+sequelize.sync({ alter: true });
+
+ipcMain.on("getPath", ((_event: IpcMainEvent) => {
+	_event.returnValue = getPath();
+}));
+
+ipcMain.on("openMeeting", ((_event: IpcMainEvent, _id: number) => {
+	console.log(`opening meeting ID: ${_id}`);
+	_event.returnValue = `opening meeting ID: ${_id}`;
+}));
+
+/* meeting */
+ipcMain.on("getMeetings", ((_event: IpcMainEvent, _args: []) => {
+	Meeting.findAll()
+		.then((data: any) => {
+			_event.returnValue = { error: false, data };
+		})
+		.catch((e: Error) => {
+			_event.returnValue = { error: true, msg: e.message };
 		});
-});
+}));
+
+ipcMain.on("createMeeting", ((_event: IpcMainEvent, _args: []) => {
+	Meeting.create({ ..._args })
+		.then((data: any) => {
+			_event.returnValue = { error: false, data };
+		})
+		.catch((e: Error) => {
+			_event.returnValue = { error: true, msg: e.message };
+		});
+}));
+
+ipcMain.on("deleteMeeting", ((_event: IpcMainEvent, _id: number) => {
+	Meeting.destroy({ where: { id: _id } })
+		.then((data: any) => {
+			_event.returnValue = { error: false, data };
+		})
+		.catch((e: Error) => {
+			_event.returnValue = { error: true, msg: e.message };
+		});
+}));
+
+ipcMain.on("updateMeeting", ((_event: IpcMainEvent, { _id, _args }: { _id: number, _args: [] }) => {
+	Meeting.update({ ..._args }, {
+		where: { id: _id }
+	})
+		.then((data: any) => {
+			_event.returnValue = { error: false, data };
+		})
+		.catch((e: Error) => {
+			_event.returnValue = { error: true, msg: e.message };
+		});
+}));
