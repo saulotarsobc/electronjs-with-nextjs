@@ -1,11 +1,10 @@
 {
-  "private": true,
-  "main": "main/index.js",
-  "productName": "SC - Electron Typescript Next",
   "name": "electron-typescript-next",
-  "description": "Aplicação ElectronJS com NextJS e typescript",
+  "version": "1.0.2",
+  "main": "main/index.js",
   "icon": "build/icon.png",
-  "version": "1.0.0",
+  "description": "Aplicação ElectronJS com NextJS e typescript",
+  "private": true,
   "author": {
     "name": "Saulo Costa",
     "email": "saulotarsobc@gmail.com",
@@ -19,7 +18,11 @@
     "build": "npm run build-frontend && npm run build-electron",
     "pack-app": "npm run build-frontend && npm run build-electron && npm run build && electron-builder --dir",
     "dist": "npm run build && electron-builder",
-    "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json"
+    "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json",
+    "publish": "electron-builder --win -p always",
+    "publish-linux": "electron-builder --linux -p always",
+    "postinstall": "electron-builder install-app-deps",
+    "release": "electron-builder"
   },
   "dependencies": {
     "electron-is-dev": "^2.0.0",
@@ -42,6 +45,22 @@
     "rimraf": "^5.0.1"
   },
   "build": {
+    "productName": "SC - Electron Typescript Next",
+    "appId": "electron-typescript-next",
+    "win": {
+      "publish": [
+        "github"
+      ],
+      "publisherName": "Saulo INC",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "license": "./licence.md",
+      "allowToChangeInstallationDirectory": true
+    },
     "asar": true,
     "files": [
       "main",

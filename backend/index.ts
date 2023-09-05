@@ -9,7 +9,7 @@ import prepareNext from "electron-next";
 // Modules
 import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
 import { getWinSettings, setWinSettings } from "./Storage";
-import { User } from "./models";
+import { User, sequelize } from "./models";
 
 const createWindow = () => {
 	const winSize = getWinSettings();
@@ -57,8 +57,11 @@ app.on("ready", async () => {
 app.on("window-all-closed", app.quit);
 
 /* ++++++++++ code ++++++++++ */
-ipcMain.on('chooseFiles', (event: IpcMainEvent) => {
-	dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] })
+// Sync database
+sequelize.sync({ alter: true });
+
+ipcMain.on("chooseFiles", (event: IpcMainEvent) => {
+	dialog.showOpenDialog({ properties: ["openFile", "multiSelections"] })
 		.then((result: any) => {
 			event.returnValue = result.filePaths;
 		}).catch((err: Error) => {
@@ -66,9 +69,12 @@ ipcMain.on('chooseFiles', (event: IpcMainEvent) => {
 		});
 });
 
-User.create({
-	firstName: "Saulo",
-	lastName: "Costa",
-}).then(data => {
-	console.log(data);
+ipcMain.on("createUser", (event: IpcMainEvent, data: {}) => {
+	User.create({ ...data })
+		.then((data: any) => {
+			event.returnValue = data;
+		})
+		.catch((e: Error) => {
+			event.returnValue = e.message;
+		})
 })

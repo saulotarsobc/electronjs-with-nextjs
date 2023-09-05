@@ -12,6 +12,7 @@ declare global {
 
 const API = {
   chooseFiles: () => ipcRenderer.sendSync("chooseFiles"),
+  createUser: (data: {}) => ipcRenderer.sendSync("createUser", data),
 }
 
 process.once("loaded", () => {

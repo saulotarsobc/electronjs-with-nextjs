@@ -2,7 +2,7 @@ import { Sequelize, DataTypes } from "sequelize";
 import { app } from "electron";
 import { join } from "path";
 
-const sequelize = new Sequelize({
+export const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: join(app.getPath("appData"), 'database.sqlite'),
 });

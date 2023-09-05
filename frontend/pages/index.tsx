@@ -2,23 +2,28 @@ import Header from "../components/Header";
 import { useState } from "react";
 
 export default function Index() {
-  const [Files, setFiles] = useState(":-)");
+  const [Users, setUsers] = useState([]);
 
   return (
     <>
       <Header />
       <h1>Home</h1>
 
-      <hr />
-      <h2>{Files}</h2>
       <button
-        onClick={() => {
-          const data = global.API.chooseFiles();
-          setFiles(data);
+        onClick={async () => {
+          const data = await global.API.createUser({
+            firstName: "Saulo",
+            lastName: "Costa",
+          });
+          setUsers(data);
         }}
       >
-        Escolher arquivos
+        Criar user
       </button>
+
+      <hr />
+      <pre>{JSON.stringify(Users, null, 4)}</pre>
+      <hr />
     </>
   );
 }
