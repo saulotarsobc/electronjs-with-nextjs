@@ -9,6 +9,7 @@ import prepareNext from "electron-next";
 // Modules
 import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
 import { getWinSettings, setWinSettings } from "./Storage";
+import { User } from "./models";
 
 const createWindow = () => {
 	const winSize = getWinSettings();
@@ -55,7 +56,7 @@ app.on("ready", async () => {
 // Saia do aplicativo quando todas as janelas estiverem fechadas
 app.on("window-all-closed", app.quit);
 
-// code
+/* ++++++++++ code ++++++++++ */
 ipcMain.on('chooseFiles', (event: IpcMainEvent) => {
 	dialog.showOpenDialog({ properties: ['openFile', 'multiSelections'] })
 		.then((result: any) => {
@@ -65,4 +66,9 @@ ipcMain.on('chooseFiles', (event: IpcMainEvent) => {
 		});
 });
 
-console.log(join(app.getPath("userData"), "asdasd.sqlite"));
+User.create({
+	firstName: "Saulo",
+	lastName: "Costa",
+}).then(data => {
+	console.log(data);
+})
