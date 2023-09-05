@@ -64,3 +64,5 @@ ipcMain.on('chooseFiles', (event: IpcMainEvent) => {
 			event.returnValue = err.message;
 		});
 });
+
+console.log(join(app.getPath("userData"), "asdasd.sqlite"));
