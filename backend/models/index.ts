@@ -4,7 +4,7 @@ import { join } from "path";
 
 export const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: join(app.getPath("appData"), 'database.sqlite'),
+    storage: join(app.getPath("userData"), 'database.sqlite'),
 });
 
 export const User = sequelize.define('User', {
@@ -20,4 +20,4 @@ export const User = sequelize.define('User', {
     // Other model options go here
 });
 
-sequelize.sync({ alter: true });
+// sequelize.sync({ alter: true });

@@ -9,7 +9,7 @@ import prepareNext from "electron-next";
 // Modules
 import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
 import { getWinSettings, setWinSettings } from "./Storage";
-import { User, sequelize } from "./models";
+import { User } from "./models";
 
 const createWindow = () => {
 	const winSize = getWinSettings();
@@ -57,9 +57,6 @@ app.on("ready", async () => {
 app.on("window-all-closed", app.quit);
 
 /* ++++++++++ code ++++++++++ */
-// Sync database
-sequelize.sync({ alter: true });
-
 ipcMain.on("chooseFiles", (event: IpcMainEvent) => {
 	dialog.showOpenDialog({ properties: ["openFile", "multiSelections"] })
 		.then((result: any) => {
