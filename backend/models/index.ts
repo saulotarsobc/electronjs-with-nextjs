@@ -20,4 +20,4 @@ export const User = sequelize.define('User', {
     // Other model options go here
 });
 
-sequelize.sync({ alter: true });
+// sequelize.sync({ alter: true });
