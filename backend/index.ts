@@ -74,4 +74,4 @@ ipcMain.on("createUser", (event: IpcMainEvent, data: {}) => {
 		.catch((e: Error) => {
 			event.returnValue = e.message;
 		})
-})
+});

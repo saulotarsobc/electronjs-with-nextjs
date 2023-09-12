@@ -11,8 +11,9 @@
     "url": "https://github.com/saulotarsobc/electron-next-ts"
   },
   "scripts": {
+    "start": "npm run build-electron && electron .",
+    "dev": "electronmon .",
     "clean": "rimraf dist main frontend/out frontend/.next",
-    "dev": "npm run build-electron && electron .",
     "build-frontend": "next build frontend",
     "build-electron": "tsc -p backend",
     "build": "npm run build-frontend && npm run build-electron",
@@ -28,6 +29,7 @@
     "electron-is-dev": "^2.0.0",
     "electron-next": "^3.1.5",
     "electron-store": "^8.1.0",
+    "electronmon": "^2.0.2",
     "esbuild": "^0.19.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -39,9 +41,8 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/sequelize": "^4.28.15",
-    "electron": "^26.1.0",
+    "electron": "^26.2.0",
     "electron-builder": "^24.6.3",
-    "minify-ts": "^1.1.5",
     "next": "^13.4.19",
     "rimraf": "^5.0.1"
   },
