@@ -8,7 +8,7 @@ import prepareNext from "electron-next";
 
 // Modules
 import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
-import { getWinSettings, setWinSettings } from "./storage";
+import { getWinSettings, setWinSettings } from "./store";
 import { User } from "./models";
 
 const createWindow = () => {
