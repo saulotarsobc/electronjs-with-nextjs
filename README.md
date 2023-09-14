@@ -39,13 +39,13 @@ yarn dev;
 
 ```json
 "scripts": {
+  "start": "npm run build-electron && electron .",
   "clean": "rimraf dist main frontend/out frontend/.next",
-  "dev": "npm run build-electron && electron .",
   "build-frontend": "next build frontend",
   "build-electron": "tsc -p backend",
   "build": "npm run build-frontend && npm run build-electron",
   "pack-app": "npm run build-frontend && npm run build-electron && npm run build && electron-builder --dir",
-  "dist": "npm run build && electron-builder",
+  "dist": "npm run clean && npm run build && electron-builder",
   "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json",
   "publish": "electron-builder --win -p always",
   "publish-linux": "electron-builder --linux -p always",
