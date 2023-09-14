@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import { useState } from "react";
 
 export default function Index() {
@@ -6,7 +5,6 @@ export default function Index() {
 
   return (
     <>
-      <Header />
       <h1>Home</h1>
 
       <button

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../components/Header";
 
 export default function page2() {
   const [Files, setFiles] = useState(":-)");
@@ -11,7 +10,6 @@ export default function page2() {
 
   return (
     <>
-      <Header />
       <div>
         <h1>Pagina 2</h1>
 
