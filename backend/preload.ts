@@ -10,9 +10,13 @@ declare global {
   }
 }
 
-const API = {
+const db = {
   chooseFiles: () => ipcRenderer.sendSync("chooseFiles"),
   createUser: (data: {}) => ipcRenderer.sendSync("createUser", data),
+}
+
+const API = {
+  db: db,
 }
 
 process.once("loaded", () => {

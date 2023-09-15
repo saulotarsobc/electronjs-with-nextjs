@@ -17,7 +17,7 @@ const createWindow = () => {
 	const mainWindow = new BrowserWindow({
 		height: winSize.h,
 		width: winSize.w,
-		minHeight: 400,
+		minHeight: 500,
 		minWidth: 400,
 		webPreferences: {
 			nodeIntegration: false,
@@ -60,7 +60,7 @@ app.on("window-all-closed", app.quit);
 ipcMain.on("chooseFiles", (event: IpcMainEvent) => {
 	dialog.showOpenDialog({ properties: ["openFile", "multiSelections"] })
 		.then((result: any) => {
-			event.returnValue = result.filePaths;
+			event.returnValue = result;
 		}).catch((err: Error) => {
 			event.returnValue = err.message;
 		});

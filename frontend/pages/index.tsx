@@ -9,7 +9,7 @@ export default function Index() {
 
       <button
         onClick={async () => {
-          const data = await global.API.createUser({
+          const data = await global.API.db.createUser({
             firstName: "Saulo",
             lastName: "Costa",
           });

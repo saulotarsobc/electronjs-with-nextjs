@@ -4,11 +4,14 @@ import React from "react";
 export default function Header() {
   return (
     <header>
-      <nav>
-        <Link href="/">Home</Link>
-        <br />
-        <Link href="/page2">Página 2</Link>
-      </nav>
+      <ul>
+        <li>
+          <Link href="/">Home</Link>
+        </li>
+        <li>
+          <Link href="/page2">Página 2</Link>
+        </li>
+      </ul>
     </header>
   );
 }
