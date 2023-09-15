@@ -4,7 +4,7 @@ export default function page2() {
   const [Files, setFiles] = useState([]);
 
   const chooseFiles = () => {
-    const { canceled, filePaths } = global.API.db.chooseFiles();
+    const { canceled, filePaths } = global.api.sys.chooseFiles();
     !canceled ? setFiles(filePaths) : null;
     console.log(filePaths);
   };

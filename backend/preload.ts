@@ -1,24 +1,24 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ipcRenderer } from "electron";
+import { IpcRenderer, ipcRenderer } from "electron";
 
 declare global {
   namespace NodeJS {
     interface Global {
+      IpcRenderer: IpcRenderer
       API: any;
     }
   }
 }
 
 const db = {
-  chooseFiles: () => ipcRenderer.sendSync("chooseFiles"),
   createUser: (data: {}) => ipcRenderer.sendSync("createUser", data),
 }
 
-const API = {
-  db: db,
+const sys = {
+  chooseFiles: () => ipcRenderer.sendSync("chooseFiles"),
 }
 
 process.once("loaded", () => {
-  (global as any).API = API;
+  (global as any).api = { ipcRenderer, db, sys };
 });
