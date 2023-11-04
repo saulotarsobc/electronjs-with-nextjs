@@ -22,7 +22,8 @@
     "publish": "electron-builder --win -p always",
     "publish-linux": "electron-builder --linux -p always",
     "postinstall": "electron-builder install-app-deps",
-    "release": "electron-builder"
+    "release": "electron-builder",
+    "libs-update": "ncu -u && npm install"
   },
   "dependencies": {
     "electron-is-dev": "^2.0.0",
@@ -42,6 +43,7 @@
     "electron": "^26.2.0",
     "electron-builder": "^24.6.3",
     "next": "^13.4.19",
+    "npm-check-updates": "^16.14.6",
     "rimraf": "^5.0.1"
   },
   "build": {
