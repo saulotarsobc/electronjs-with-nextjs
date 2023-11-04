@@ -43,8 +43,7 @@ npm start;
     "clean": "rimraf dist main frontend/out frontend/.next",
     "build-frontend": "next build frontend",
     "build-electron": "tsc -p backend",
-    "prebuild": "rimraf dist main frontend/out frontend/.next",
-    "build": "npm run build-frontend && npm run build-electron",
+    "build": "npm run clean && npm run build-frontend && npm run build-electron",
     "pack-app": "npm run build-frontend && npm run build-electron && npm run build && electron-builder --dir",
     "dist": "npm run clean && npm run build && electron-builder",
     "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json",
@@ -52,5 +51,5 @@ npm start;
     "publish-linux": "electron-builder --linux -p always",
     "postinstall": "electron-builder install-app-deps",
     "release": "electron-builder"
-  },
+},
 ```
