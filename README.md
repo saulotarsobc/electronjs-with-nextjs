@@ -50,6 +50,7 @@ npm start;
     "publish": "electron-builder --win -p always",
     "publish-linux": "electron-builder --linux -p always",
     "postinstall": "electron-builder install-app-deps",
-    "release": "electron-builder"
+    "release": "electron-builder",
+    "libs-update": "ncu -u && npm install"
 },
 ```
