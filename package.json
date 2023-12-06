@@ -1,9 +1,9 @@
 {
   "name": "electron-typescript-next",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "main": "main/index.js",
   "icon": "build/icon.png",
-  "description": "Aplicação ElectronJS com NextJS e typescript",
+  "description": "Aplicação ElectronJS com NextJS e typescript. #tailwindcss",
   "private": true,
   "author": {
     "name": "Saulo Costa",
@@ -29,22 +29,25 @@
     "electron-is-dev": "^2.0.0",
     "electron-next": "^3.1.5",
     "electron-store": "^8.1.0",
-    "esbuild": "^0.19.3",
+    "esbuild": "^0.19.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sequelize": "^6.33.0",
+    "sequelize": "^6.35.1",
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
-    "@types/node": "^20.5.6",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
-    "@types/sequelize": "^4.28.15",
-    "electron": "^26.2.0",
-    "electron-builder": "^24.6.3",
-    "next": "^13.4.19",
-    "npm-check-updates": "^16.14.6",
-    "rimraf": "^5.0.1"
+    "@types/node": "^20.10.3",
+    "@types/react": "^18.2.42",
+    "@types/react-dom": "^18.2.17",
+    "@types/sequelize": "^4.28.19",
+    "autoprefixer": "^10.4.16",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "next": "^14.0.3",
+    "npm-check-updates": "^16.14.11",
+    "postcss": "^8.4.32",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.3.6"
   },
   "build": {
     "productName": "SC - Electron Typescript Next",
