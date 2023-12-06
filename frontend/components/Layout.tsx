@@ -1,10 +1,11 @@
+import { ReactNode } from "react";
 import Head from "next/head";
 import Header from "./Header";
 
 import { build, version, description } from "../../package.json";
 const pageTitle = `${build.productName} - v${version}`;
 
-export default function Layout({ children }) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Head>
