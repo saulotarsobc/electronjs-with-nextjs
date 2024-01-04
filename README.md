@@ -1,6 +1,6 @@
 # Electron + Typescript + Next
 
-## Como usar
+## Use
 
 ```sh
 git clone https://github.com/saulotarsobc/electron-next-ts.git;
@@ -15,36 +15,18 @@ npm start;
 - [What is CODE SIGNING | Importance of code sign | Code sing in electron js](https://youtu.be/a27EtDuUGYg)
 - [Electron Mini Tutorials](https://youtube.com/playlist?list=PL_2VhOvlMk4XLzvGgqbmjF9PkVgUGMDcJ&si=7r5qeWiby_1d6vCr)
 
-## Scripts
+### NPM Commands
 
-```json
-"scripts": {
-    "dev": "npm run build-electron && electron .",
-    "clean": "rimraf dist main frontend/out frontend/.next",
-    "build-frontend": "next build frontend",
-    "build-electron": "tsc -p backend",
-    "build": "npm run clean && npm run build-frontend && npm run build-electron",
-    "pack-app": "npm run build-frontend && npm run build-electron && npm run build && electron-builder --dir",
-    "dist": "npm run clean && npm run build && electron-builder",
-    "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json",
-    "publish": "electron-builder --win -p always",
-    "publish-linux": "electron-builder --linux -p always",
-    "postinstall": "electron-builder install-app-deps",
-    "release": "electron-builder",
-    "libs-update": "ncu -u && npm install"
-},
-```
-
-- **dev:** Inicia o aplicativo, primeiro construindo-o com `npm run build-electron` e, em seguida, executando-o com o Electron.
-- **clean:** Remove os diretórios de saída e de construção, incluindo `dist`, `main`, `frontend/out` e `frontend/.next`, usando o pacote `rimraf`.
-- **build-frontend:** Compila o código do frontend usando o Next.js e gera os artefatos de construção.
-- **build-electron:** Compila o código do backend usando o TypeScript (`tsc -p backend`).
-- **build:** Executa o processo de limpeza (`npm run clean`) e, em seguida, constrói tanto o frontend quanto o backend.
-- **pack-app:** Empacota o aplicativo para distribuição, construindo o frontend, o backend e o pacote geral usando o Electron Builder com a opção `--dir`.
-- **dist:** Realiza o processo de limpeza e construção, em seguida, cria os artefatos de distribuição usando o Electron Builder.
-- **type-check:** Realiza a verificação de tipos para os códigos TypeScript no frontend e no backend.
-- **publish:** Publica o aplicativo para a plataforma Windows usando o Electron Builder.
-- **publish-linux:** Publica o aplicativo para a plataforma Linux usando o Electron Builder.
-- **postinstall:** Executa o comando `electron-builder install-app-deps` após a instalação de dependências para garantir que as dependências do aplicativo estejam corretas.
-- **release:** Inicia o processo de criação de um pacote de lançamento do aplicativo usando o Electron Builder.
-- **libs-update:** Atualiza as dependências do projeto usando o `ncu` (npm-check-updates) e, em seguida, reinstala as dependências usando `npm install`.
+- **dev:** Initiates the application, first building it with `npm run build-electron` and then running it with Electron.
+- **clean:** Removes output and build directories, including `dist`, `main`, `frontend/out`, and `frontend/.next`, using the `rimraf` package.
+- **build-frontend:** Compiles frontend code using Next.js and generates build artifacts.
+- **build-electron:** Compiles backend code using TypeScript (`tsc -p backend`).
+- **build:** Executes the cleaning process (`npm run clean`) and then builds both frontend and backend.
+- **pack-app:** Packages the application for distribution, building frontend, backend, and the overall package using Electron Builder with the `--dir` option.
+- **dist:** Performs the cleaning and building process, then creates distribution artifacts using Electron Builder.
+- **type-check:** Performs type checking for TypeScript code in both frontend and backend.
+- **publish:** Publishes the application for the Windows platform using Electron Builder.
+- **publish-linux:** Publishes the application for the Linux platform using Electron Builder.
+- **postinstall:** Executes the `electron-builder install-app-deps` command after dependency installation to ensure correct application dependencies.
+- **release:** Initiates the process of creating a release package for the application using Electron Builder.
+- **libs-update:** Updates project dependencies using `ncu` (npm-check-updates) and then reinstalls dependencies using `npm install`.
