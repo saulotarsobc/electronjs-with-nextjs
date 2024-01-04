@@ -1,25 +1,5 @@
 # Electron + Typescript + Next
 
-## Electron Docmentation
-
-### Context Isolation
-
-#### pt-br
-
-> O Context Isolation (Isolamento de Contexto) é um recurso que garante que tanto os seus scripts do preload quanto a lógica interna do Electron sejam executados em um `contexto separado` para a pagina que você carregar em um webContent. Isso é importante por `questões de segurança`, pois ajuda a `impedir` que a pagina web acesse os módulos internos do Electron ou aos privelégios de APIs que seu script de preload tem acesso.
->
-> Isto significa que o objeto window ao qual seu script de preload tem acesso seja realmente um objeto diferente do qual a sua pagina web teria acesso. Por exemplo, se você definir `window.hello = 'wave'` em seu script de pré-carregamento e o isolamento de contexto estiver habilitado, `window.hello` será indefinido se o site tentar acessá-lo.
->
-> Context isolation has been enabled by default since Electron 12, and it is a recommended security setting for all applications.
-
-#### en
-
-> Context Isolation is a feature that ensures that both your preload scripts and Electron's internal logic run in a separate context to the website you load in a webContents. This is important for security purposes as it helps prevent the website from accessing Electron internals or the powerful APIs your preload script has access to.
->
-> This means that the window object that your preload script has access to is actually a different object than the website would have access to. For example, if you set `window.hello = 'wave'` in your preload script and context isolation is enabled, `window.hello` will be undefined if the website tries to access it.
->
-> Context isolation has been enabled by default since Electron 12, and it is a recommended security setting for all applications.
-
 ## Como usar
 
 ```sh
@@ -54,3 +34,17 @@ npm start;
     "libs-update": "ncu -u && npm install"
 },
 ```
+
+- **dev:** Inicia o aplicativo, primeiro construindo-o com `npm run build-electron` e, em seguida, executando-o com o Electron.
+- **clean:** Remove os diretórios de saída e de construção, incluindo `dist`, `main`, `frontend/out` e `frontend/.next`, usando o pacote `rimraf`.
+- **build-frontend:** Compila o código do frontend usando o Next.js e gera os artefatos de construção.
+- **build-electron:** Compila o código do backend usando o TypeScript (`tsc -p backend`).
+- **build:** Executa o processo de limpeza (`npm run clean`) e, em seguida, constrói tanto o frontend quanto o backend.
+- **pack-app:** Empacota o aplicativo para distribuição, construindo o frontend, o backend e o pacote geral usando o Electron Builder com a opção `--dir`.
+- **dist:** Realiza o processo de limpeza e construção, em seguida, cria os artefatos de distribuição usando o Electron Builder.
+- **type-check:** Realiza a verificação de tipos para os códigos TypeScript no frontend e no backend.
+- **publish:** Publica o aplicativo para a plataforma Windows usando o Electron Builder.
+- **publish-linux:** Publica o aplicativo para a plataforma Linux usando o Electron Builder.
+- **postinstall:** Executa o comando `electron-builder install-app-deps` após a instalação de dependências para garantir que as dependências do aplicativo estejam corretas.
+- **release:** Inicia o processo de criação de um pacote de lançamento do aplicativo usando o Electron Builder.
+- **libs-update:** Atualiza as dependências do projeto usando o `ncu` (npm-check-updates) e, em seguida, reinstala as dependências usando `npm install`.
