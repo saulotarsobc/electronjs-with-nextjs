@@ -12,18 +12,19 @@
   },
   "scripts": {
     "dev": "npm run build-electron && electron .",
-    "clean": "rimraf dist main frontend/out frontend/.next",
+    "clear:install": "npx rimraf node_modules package-lock.json && npm install --force",
+    "clean": "npx rimraf dist main frontend/out frontend/.next",
     "build-frontend": "next build frontend",
-    "build-electron": "tsc -p backend",
+    "build-electron": "npx tsc -p backend",
     "build": "npm run clean && npm run build-frontend && npm run build-electron",
     "pack-app": "npm run build-frontend && npm run build-electron && npm run build && electron-builder --dir",
     "dist": "npm run build && electron-builder",
-    "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json",
+    "type-check": "npx tsc -p ./frontend/tsconfig.json && npx tsc -p ./backend/tsconfig.json",
     "publish": "electron-builder --win -p always",
     "publish-linux": "electron-builder --linux -p always",
     "postinstall": "electron-builder install-app-deps",
     "release": "electron-builder",
-    "libs-update": "ncu -u && npm install"
+    "libs-update": "npx ncu -i"
   },
   "dependencies": {
     "electron-is-dev": "^2.0.0",
