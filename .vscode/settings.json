@@ -1,0 +1,31 @@
+/**
+* by Saulo Costa
+*/
+{
+    // geral
+    "editor.formatOnSave": true,
+    // material icon
+    "material-icon-theme.activeIconPack": "nest",
+    // comentarios
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "name": "ESTILO PARA BLOCOS DE COMENTARIOS TIPO DOCUMENTAÇÃO",
+                "scope": "comment.block.documentation",
+                "settings": {
+                    "foreground": "#ff00dd",
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    },
+    // minimap
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.maxColumn": 100,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.scale": 1,
+    "editor.minimap.autohide": false,
+    "editor.minimap.enabled": true,
+    "editor.minimap.side": "right",
+    "editor.minimap.size": "proportional"
+}
