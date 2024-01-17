@@ -13,6 +13,7 @@ npm start;
 
 - [Electronjs - documentation](https://www.electronjs.org/pt/docs/latest/)
 - [What is CODE SIGNING | Importance of code sign | Code sing in electron js](https://youtu.be/a27EtDuUGYg)
+- [Electron Builder Tutorial: How to Sign Your Electron App's Code](https://youtu.be/WnipZaYslRc)
 - [Electron Mini Tutorials](https://youtube.com/playlist?list=PL_2VhOvlMk4XLzvGgqbmjF9PkVgUGMDcJ&si=7r5qeWiby_1d6vCr)
 
 ### NPM Commands
