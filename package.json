@@ -14,7 +14,7 @@
     "dev": "npm run build-electron && electron .",
     "clear:install": "npx rimraf node_modules package-lock.json && npm install --force",
     "clean": "npx rimraf dist main frontend/out frontend/.next",
-    "build-frontend": "next build frontend",
+    "build-frontend": "npx next build frontend",
     "build-electron": "npx tsc -p backend",
     "build": "npm run clean && npm run build-frontend && npm run build-electron",
     "pack-app": "npm run build-frontend && npm run build-electron && npm run build && electron-builder --dir",
@@ -48,7 +48,8 @@
     "npm-check-updates": "^16.14.12",
     "postcss": "^8.4.33",
     "rimraf": "^5.0.5",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3"
   },
   "build": {
     "productName": "SC - Electron Typescript Next",
