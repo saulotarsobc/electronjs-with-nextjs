@@ -3,13 +3,15 @@ import { join } from "path";
 import { format } from "url";
 
 // Packages
-import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
 
 // Modules
 import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
 import { getWinSettings, setWinSettings } from "./store";
 import { User } from "./models";
+
+const isDev = process.argv.some((str) => str == "--dev");
+const isStart = process.argv.some((str) => str == "--start");
 
 const createWindow = () => {
 	const winSize = getWinSettings();
@@ -36,13 +38,15 @@ const createWindow = () => {
 	// abre o devtools se estiver em modo de desenvolvimento
 	if (isDev) mainWindow.webContents.openDevTools();
 
-	mainWindow.loadURL((isDev
-		? `http://localhost:8000/`
-		: format({
-			pathname: join(__dirname, "../frontend/out/index.html"),
-			protocol: "file:",
-			slashes: true,
-		})));
+	mainWindow.loadURL(
+		isStart || isDev
+			? `http://localhost:8000/`
+			: format({
+				pathname: join(__dirname, "../frontend/out/index.html"),
+				protocol: "file:",
+				slashes: true,
+			})
+	);
 }
 
 // Prepare the frontend once the app is ready
