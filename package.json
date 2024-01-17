@@ -4,7 +4,8 @@
   "main": "main/index.js",
   "icon": "build/icon.png",
   "description": "Aplicação ElectronJS com NextJS e typescript. #tailwindcss",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "author": {
     "name": "Saulo Costa",
     "email": "saulotarsobc@gmail.com",
