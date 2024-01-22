@@ -14,14 +14,14 @@
   "scripts": {
     "dev": "npm run build-backend && electron . --dev",
     "start": "npm run build && electron . --start",
-    "clear:install": "rimraf node_modules package-lock.json && npm install",
+    "clear:install": "rimraf node_modules package-lock.json && npm install --force",
     "clean": "rimraf dist main frontend/out frontend/.next",
     "build-frontend": "next build frontend",
-    "build-backend": "tsc -p backend",
+    "build-backend": "npx tsc -p backend",
     "build": "npm run clean && npm run build-frontend && npm run build-backend",
     "pack-app": "npm run build-frontend && npm run build-backend && npm run build && electron-builder --dir",
     "dist": "npm run build && electron-builder",
-    "type-check": "tsc -p ./frontend/tsconfig.json && tsc -p ./backend/tsconfig.json",
+    "type-check": "npx tsc -p ./frontend/tsconfig.json && npx tsc -p ./backend/tsconfig.json",
     "publish": "electron-builder --win -p always",
     "publish-linux": "electron-builder --linux -p always",
     "postinstall": "electron-builder install-app-deps",
@@ -29,27 +29,27 @@
     "libs-update": "ncu -i"
   },
   "dependencies": {
+    "electron-is-dev": "^2.0.0",
     "electron-next": "^3.1.5",
     "electron-store": "^8.1.0",
     "esbuild": "^0.19.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sequelize": "^6.35.2",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "@types/node": "^20.10.6",
-    "@types/react": "^18.2.46",
+    "@types/node": "^20.11.5",
+    "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "@types/sequelize": "^4.28.19",
-    "autoprefixer": "^10.4.16",
-    "electron": "^28.1.1",
+    "autoprefixer": "^10.4.17",
+    "electron": "^26.6.7",
     "electron-builder": "^24.9.1",
-    "next": "^14.0.4",
+    "next": "^13",
     "npm-check-updates": "^16.14.12",
     "postcss": "^8.4.33",
     "rimraf": "^5.0.5",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   },
   "build": {

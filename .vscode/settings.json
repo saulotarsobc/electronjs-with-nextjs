@@ -27,5 +27,7 @@
     "editor.minimap.autohide": false,
     "editor.minimap.enabled": true,
     "editor.minimap.side": "right",
-    "editor.minimap.size": "proportional"
+    "editor.minimap.size": "proportional",
+    // breadcrumbs
+    "breadcrumbs.enabled": false
 }

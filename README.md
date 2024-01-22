@@ -5,8 +5,8 @@
 ```sh
 git clone https://github.com/saulotarsobc/electron-next-ts.git;
 cd electron-next-ts;
-npm install;
-npm start;
+yarn install;
+yarn start;
 ```
 
 ## Help
