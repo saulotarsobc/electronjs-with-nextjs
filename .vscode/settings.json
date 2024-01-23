@@ -3,7 +3,8 @@
 */
 {
     // geral
-    "editor.formatOnSave": true,
+    // "editor.formatOnSave": true,
+    "explorer.compactFolders": false,
     // material icon
     "material-icon-theme.activeIconPack": "nest",
     // comentarios
@@ -29,5 +30,5 @@
     "editor.minimap.side": "right",
     "editor.minimap.size": "proportional",
     // breadcrumbs
-    "breadcrumbs.enabled": false
+    // "breadcrumbs.enabled": false,
 }
