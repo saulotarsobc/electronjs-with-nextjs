@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  GH_TOKEN: ${{ vars.GH_TOKEN }}
 
 jobs:
   build:
@@ -23,13 +23,15 @@ jobs:
           node-version: "18"
 
       - name: Envs
-        run: echo "your token is ${{secrets.GH_TOKEN}}"
+        run: echo "your token is ${{env.GH_TOKEN}}"
+        env:
+          GH_TOKEN: ${{ vars.GH_TOKEN }}
 
-      - name: Install dependencies
-        run: npm install
+      # - name: Install dependencies
+      #   run: npm install
 
-      - name: Build Electron App
-        run: npm run dist
+      # - name: Build Electron App
+      #   run: npm run dist
 
-      - name: Release Electron App
-        run: npm run release
+      # - name: Release Electron App
+      #   run: npm run release
