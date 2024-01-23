@@ -10,8 +10,7 @@ env:
 
 jobs:
   build-ubuntu:
-    # runs-on: [windows-latest]
-    runs-on: [ubuntu-latest, windows-latest]
+    runs-on: [ubuntu-latest]
 
     steps:
       - name: Checkout repository
@@ -20,12 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
-
-      - name: Envs
-        run: echo "your token is ${{vars.GH_TOKEN}}"
-        env:
-          GH_TOKEN: ${{ vars.GH_TOKEN }}
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
@@ -36,23 +30,23 @@ jobs:
       - name: Release Electron App
         run: npm run release
 
-  # build-windows:
-  #   runs-on: [windows-latest]
+  build-windows:
+    runs-on: [windows-latest]
 
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: "18"
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
 
-  #     - name: Install dependencies
-  #       run: npm install
+      - name: Install dependencies
+        run: npm install
 
-  #     - name: Build Electron App
-  #       run: npm run dist
+      - name: Build Electron App
+        run: npm run dist
 
-  #     - name: Release Electron App
-        # run: npm run release
+      - name: Release Electron App
+        run: npm run release
