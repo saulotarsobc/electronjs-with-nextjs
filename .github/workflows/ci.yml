@@ -23,7 +23,9 @@ jobs:
           node-version: "18"
       
       - name: echo variable
-        run: echo ${{ secrets.GH_TOKEN }}
+        run: echo $GH_TOKEN
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       # - name: Install dependencies
       #   run: npm install
@@ -33,5 +35,3 @@ jobs:
 
       # - name: Release Electron App
       #   run: npm run release
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
