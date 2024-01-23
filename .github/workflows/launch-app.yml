@@ -5,8 +5,8 @@ on:
     branches:
       - master
 
-# env:
-#   GH_TOKEN: ${{ vars.GH_TOKEN }}
+env:
+  GH_TOKEN: ${{ vars.GH_TOKEN }}
 
 jobs:
   build:
@@ -24,14 +24,14 @@ jobs:
 
       - name: Envs
         run: echo "your token is ${{vars.GH_TOKEN}}"
-        # env:
-        #   GH_TOKEN: ${{ vars.GH_TOKEN }}
+        env:
+          GH_TOKEN: ${{ vars.GH_TOKEN }}
 
-      # - name: Install dependencies
-      #   run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      # - name: Build Electron App
-      #   run: npm run dist
+      - name: Build Electron App
+        run: npm run dist
 
-      # - name: Release Electron App
-      #   run: npm run release
+      - name: Release Electron App
+        run: npm run release
