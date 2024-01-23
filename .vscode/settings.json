@@ -2,6 +2,14 @@
 * by Saulo Costa
 */
 {
+    //mantine
+    "cssVariables.lookupFiles": [
+        "**/*.css",
+        "**/*.scss",
+        "**/*.sass",
+        "**/*.less",
+        "node_modules/@mantine/core/styles.css"
+    ],
     // geral
     // "editor.formatOnSave": true,
     "explorer.compactFolders": false,

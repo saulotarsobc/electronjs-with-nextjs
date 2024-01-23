@@ -1,6 +1,7 @@
 name: launch-app
 
 on:
+  
   push:
     branches:
       - master
