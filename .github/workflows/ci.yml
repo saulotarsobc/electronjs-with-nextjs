@@ -1,9 +1,9 @@
-name: Build Electron App
+name: Build and Launch Electron App
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
