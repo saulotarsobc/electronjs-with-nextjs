@@ -23,9 +23,9 @@ jobs:
           node-version: "18"
 
       - name: Envs
-        run: echo "your token is ${{env.GH_TOKEN}}"
-        env:
-          GH_TOKEN: ${{ vars.GH_TOKEN }}
+        run: echo "your token is ${{vars.GH_TOKEN}}"
+        # env:
+        #   GH_TOKEN: ${{ vars.GH_TOKEN }}
 
       # - name: Install dependencies
       #   run: npm install
