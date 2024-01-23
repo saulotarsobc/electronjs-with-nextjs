@@ -6,12 +6,12 @@ on:
       - master
 
 env:
-  GH_TOKEN: ${{ vars.GH_TOKEN }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
   build:
     # runs-on: [windows-latest, ubuntu-latest]
-    runs-on: [ubuntu-latest]
+    runs-on: [windows-latest]
 
     steps:
       - name: Checkout repository
@@ -21,11 +21,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
-      
-      - name: echo variable
-        run: echo ${{ secrets.GH_TOKEN }}
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Install dependencies
         run: npm install
