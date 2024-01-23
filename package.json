@@ -65,6 +65,29 @@
         "nsis"
       ]
     },
+    "linux": {
+      "desktop": {
+        "StartupNotify": "false",
+        "Encoding": "UTF-8",
+        "MimeType": "x-scheme-handler/deeplink"
+      },
+      "target": [
+        "AppImage",
+        "rpm",
+        "deb"
+      ]
+    },
+    "deb": {
+      "priority": "optional",
+      "afterInstall": "installer/linux/after-install.tpl"
+    },
+    "rpm": {
+      "fpm": [
+        "--before-install",
+        "installer/linux/before-install.tpl"
+      ],
+      "afterInstall": "installer/linux/after-install.tpl"
+    },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
