@@ -5,8 +5,8 @@ on:
     branches:
       - master
 
-env:
-  GH_TOKEN: ${{ vars.GH_TOKEN }}
+# env:
+#   GH_TOKEN: ${{ vars.GH_TOKEN }}
 
 jobs:
   build:
