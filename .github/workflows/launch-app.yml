@@ -10,8 +10,8 @@ env:
 
 jobs:
   build:
-    # runs-on: [windows-latest, ubuntu-latest]
-    runs-on: [windows-latest]
+    runs-on: [windows-latest, ubuntu-latest]
+    # runs-on: [windows-latest]
 
     steps:
       - name: Checkout repository
@@ -21,6 +21,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+
+      - name: Envs
+        run: echo "your token is ${{secrets.GH_TOKEN}}"
 
       - name: Install dependencies
         run: npm install
