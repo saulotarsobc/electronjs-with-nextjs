@@ -12,7 +12,9 @@ export default function page2() {
   return (
     <>
       <div>
-        <h1>Pagina 2</h1>
+        <h1>Arquivos</h1>
+
+        <h2>Integração com sistema de arquivos</h2>
 
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
