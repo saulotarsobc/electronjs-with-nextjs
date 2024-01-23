@@ -4,17 +4,13 @@ on:
   push:
     branches:
       - master
-
+env:
+  GH_TOKEN: ${{ vars.GH_TOKEN }}
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      - name: Set up GitHub token
-        run: |
-          export GH_TOKEN=${{ secrets.GH_TOKEN }}
-          echo "GH_TOKEN=${GH_TOKEN}" >> $GITHUB_ENV
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
