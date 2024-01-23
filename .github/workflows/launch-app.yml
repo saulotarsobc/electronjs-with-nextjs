@@ -67,6 +67,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install dmg-license lib
+        run: npm install dmg-license
+
       - name: Build Electron App
         run: npm run dist
 
