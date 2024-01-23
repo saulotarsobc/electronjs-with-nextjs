@@ -4,11 +4,14 @@ on:
   push:
     branches:
       - master
+
 env:
   GH_TOKEN: ${{ vars.GH_TOKEN }}
+
 jobs:
   build:
-    runs-on: windows-latest
+    # runs-on: [windows-latest, ubuntu-latest]
+    runs-on: [ubuntu-latest]
 
     steps:
       - name: Checkout repository
