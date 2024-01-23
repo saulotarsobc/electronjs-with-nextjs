@@ -23,7 +23,7 @@ jobs:
           node-version: "18"
       
       - name: echo variable
-        run: echo $GH_TOKEN
+        run: echo ${{ secrets.GH_TOKEN }}
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
