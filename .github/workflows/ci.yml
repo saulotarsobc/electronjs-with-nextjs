@@ -10,6 +10,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Set up GitHub token
+        run: |
+          export GH_TOKEN=${{ secrets.GH_TOKEN }}
+          echo "GH_TOKEN=${GH_TOKEN}" >> $GITHUB_ENV
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -26,3 +31,5 @@ jobs:
 
       - name: Release Electron App
         run: npm run release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
