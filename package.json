@@ -22,7 +22,7 @@
     "pack-app": "npm run build-frontend && npm run build-backend && npm run build && npx electron-builder --dir",
     "dist": "npm run build && npx electron-builder",
     "type-check": "npx tsc -p ./frontend/tsconfig.json && npx tsc -p ./backend/tsconfig.json",
-    "publish": "npx electron-builder --win -p always",
+    "publish-win": "npx electron-builder --win -p always",
     "publish-linux": "npx electron-builder --linux -p always",
     "postinstall": "npx electron-builder install-app-deps",
     "release": "npx electron-builder",
