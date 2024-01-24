@@ -1,13 +1,12 @@
 name: launch-app
 
 on:
-  
   push:
     branches:
       - master
 
 env:
-  GH_TOKEN: ${{ vars.GH_TOKEN }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
   build-ubuntu:
