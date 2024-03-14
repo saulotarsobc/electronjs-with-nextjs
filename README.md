@@ -1,5 +1,18 @@
 # Electron + Typescript + Next
 
+<div align="center">
+   <!-- <img alt="Build Status" src="https://img.shields.io/travis/saulotarsobc/scripts.svg"> -->
+   <!-- <img alt="Test Coverage" src="https://img.shields.io/codecov/c/github/saulotarsobc/scripts.svg"> -->
+   <!-- <img alt="Version" src="https://img.shields.io/github/v/release/saulotarsobc/scripts.svg"> -->
+   <!-- <img alt="Downloads" src="https://img.shields.io/npm/dt/package-name.svg"> -->
+   <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+   <img alt="Contributors" src="https://img.shields.io/github/contributors/saulotarsobc/electronjs-with-nextjs.svg">
+   <img alt="Last Commit" src="https://img.shields.io/github/last-commit/saulotarsobc/electronjs-with-nextjs.svg">
+   <img alt="Stars" src="https://img.shields.io/github/stars/saulotarsobc/electronjs-with-nextjs.svg">
+</div>
+
+---
+
 ## Use
 
 ```sh
