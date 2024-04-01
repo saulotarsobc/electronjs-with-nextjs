@@ -1,6 +1,6 @@
 import { MantineProvider, createTheme } from "@mantine/core";
-import Layout from "../components/Layout";
-import "../styles/global.css";
+import Layout from "@/components/Layout";
+import "@/styles/globals.css";
 
 // mantine
 // core styles are required for all packages
