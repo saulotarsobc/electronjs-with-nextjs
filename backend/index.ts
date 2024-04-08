@@ -6,16 +6,9 @@ import { format } from "url";
 import prepareNext from "electron-next";
 import { BrowserWindow, app, ipcMain, IpcMainEvent, dialog } from "electron";
 
+import { isDev, isStart } from "./utils/env";
 import { getWinSettings, setWinSettings } from "./store";
-import { prisma } from "./prisma";
-
-const isDev = process.argv.some((str) => str == "--dev");
-const isStart = process.argv.some((str) => str == "--start");
-
-const MIGRATIONS_FOLDER =
-  isStart || isDev
-    ? join(__dirname, "..", "prisma", "migrations")
-    : join(__dirname, "..", "..", "..", "resources", "prisma", "migrations");
+import { prepareDataBase, prisma } from "./prisma";
 
 const createWindow = () => {
   const winSize = getWinSettings();
@@ -58,30 +51,8 @@ const createWindow = () => {
 app.on("ready", async () => {
   await prepareNext("./frontend");
 
-  await prisma.$queryRaw`-- CreateTable
-  CREATE TABLE "users" (
-      "id" TEXT NOT NULL PRIMARY KEY,
-      "firstName" TEXT NOT NULL,
-      "lastName" TEXT,
-      "age" REAL DEFAULT 0,
-      "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-      "updatedAt" DATETIME NOT NULL
-  );`.catch((e: Error) => console.log({ e: e.message }));
-
-  await prisma.$queryRaw`-- AlterTable
-  ALTER TABLE "users" ADD COLUMN "born" DATETIME;`.catch((e: Error) =>
-    console.log({ e: e.message })
-  );
-
-  const columnExists: any =
-    await prisma.$queryRaw`SELECT COUNT(*) AS column_exists
-   FROM users;`;
-
-  if (!columnExists[0].column_exists) {
-    await prisma.$executeRaw`ALTER TABLE users ADD COLUMN born DATETIME;`.catch(
-      (e: Error) => console.log({ e: e.message })
-    );
-  }
+  /* PREPARE DATABASE */
+  await prepareDataBase();
 
   createWindow();
 });
@@ -108,7 +79,7 @@ ipcMain.on("createUser", (event: IpcMainEvent, data: any) => {
     .then((data: any) => {
       event.returnValue = data;
     })
-    .catch((_e: Error) => {
-      event.returnValue = MIGRATIONS_FOLDER;
+    .catch((e: Error) => {
+      event.returnValue = e.message;
     });
 });

@@ -10,7 +10,7 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
+  id        Int       @id @default(autoincrement())
   firstName String
   lastName  String?
   age       Float?    @default(0)
