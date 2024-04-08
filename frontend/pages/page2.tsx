@@ -23,7 +23,7 @@ export default function page2() {
           Escolher arquivos
         </button>
         <hr />
-        {Files.map((file: string, index) => (
+        {Files.map((file: string, index: number) => (
           <pre key={index}>{file}</pre>
         ))}
         <hr />

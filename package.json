@@ -24,12 +24,17 @@
     "publish-win": "npx electron-builder --win -p always",
     "publish-linux": "npx electron-builder --linux -p always",
     "postinstall": "npx electron-builder install-app-deps",
-    "release": "npx electron-builder"
+    "release": "npx electron-builder",
+    "mg": "prisma migrate dev --name dev",
+    "mg:create": "prisma migrate dev --create-only --name dev",
+    "gen": "prisma generate"
   },
   "dependencies": {
     "@mantine/core": "^7.7.1",
     "@mantine/form": "^7.7.1",
     "@mantine/hooks": "^7.7.1",
+    "@prisma/client": "^5.12.1",
+    "dotenv": "^16.4.5",
     "electron-is-dev": "^2.0.0",
     "electron-next": "^3.1.5",
     "electron-store": "^8.2.0",
@@ -47,6 +52,7 @@
     "electron": "^29.1.6",
     "electron-builder": "^24.13.3",
     "postcss": "^8",
+    "prisma": "^5.12.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
@@ -54,13 +60,15 @@
     "productName": "SC - Electron Typescript Next",
     "appId": "electron-typescript-next",
     "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "./build/icon.png",
       "publish": [
         "github"
       ],
       "publisherName": "Saulo INC",
-      "target": [
-        "nsis"
-      ]
+      "artifactName": "${productName}-Setup-${version}.${ext}"
     },
     "mac": {
       "target": "dmg",
@@ -74,6 +82,18 @@
     "files": [
       "main",
       "frontend/out"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    },
+    "extraResources": [
+      {
+        "from": "prisma",
+        "to": "prisma",
+        "filter": [
+          "**/*"
+        ]
+      }
     ]
   }
 }
