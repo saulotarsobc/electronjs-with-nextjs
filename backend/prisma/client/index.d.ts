@@ -891,6 +891,7 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     age: number | null
+    born: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -900,6 +901,7 @@ export namespace Prisma {
     firstName: string | null
     lastName: string | null
     age: number | null
+    born: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -909,6 +911,7 @@ export namespace Prisma {
     firstName: number
     lastName: number
     age: number
+    born: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -928,6 +931,7 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     age?: true
+    born?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -937,6 +941,7 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     age?: true
+    born?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -946,6 +951,7 @@ export namespace Prisma {
     firstName?: true
     lastName?: true
     age?: true
+    born?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1042,6 +1048,7 @@ export namespace Prisma {
     firstName: string
     lastName: string | null
     age: number | null
+    born: Date | null
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1070,6 +1077,7 @@ export namespace Prisma {
     firstName?: boolean
     lastName?: boolean
     age?: boolean
+    born?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1079,6 +1087,7 @@ export namespace Prisma {
     firstName?: boolean
     lastName?: boolean
     age?: boolean
+    born?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
@@ -1092,6 +1101,7 @@ export namespace Prisma {
       firstName: string
       lastName: string | null
       age: number | null
+      born: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1492,6 +1502,7 @@ export namespace Prisma {
     readonly firstName: FieldRef<"User", 'String'>
     readonly lastName: FieldRef<"User", 'String'>
     readonly age: FieldRef<"User", 'Float'>
+    readonly born: FieldRef<"User", 'DateTime'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -1796,6 +1807,7 @@ export namespace Prisma {
     firstName: 'firstName',
     lastName: 'lastName',
     age: 'age',
+    born: 'born',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -1863,6 +1875,7 @@ export namespace Prisma {
     firstName?: StringFilter<"User"> | string
     lastName?: StringNullableFilter<"User"> | string | null
     age?: FloatNullableFilter<"User"> | number | null
+    born?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }
@@ -1872,6 +1885,7 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrderInput | SortOrder
     age?: SortOrderInput | SortOrder
+    born?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -1884,6 +1898,7 @@ export namespace Prisma {
     firstName?: StringFilter<"User"> | string
     lastName?: StringNullableFilter<"User"> | string | null
     age?: FloatNullableFilter<"User"> | number | null
+    born?: DateTimeNullableFilter<"User"> | Date | string | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }, "id">
@@ -1893,6 +1908,7 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrderInput | SortOrder
     age?: SortOrderInput | SortOrder
+    born?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -1910,6 +1926,7 @@ export namespace Prisma {
     firstName?: StringWithAggregatesFilter<"User"> | string
     lastName?: StringNullableWithAggregatesFilter<"User"> | string | null
     age?: FloatNullableWithAggregatesFilter<"User"> | number | null
+    born?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -1919,6 +1936,7 @@ export namespace Prisma {
     firstName: string
     lastName?: string | null
     age?: number | null
+    born?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -1928,6 +1946,7 @@ export namespace Prisma {
     firstName: string
     lastName?: string | null
     age?: number | null
+    born?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -1937,6 +1956,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     age?: NullableFloatFieldUpdateOperationsInput | number | null
+    born?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -1946,6 +1966,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     age?: NullableFloatFieldUpdateOperationsInput | number | null
+    born?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -1955,6 +1976,7 @@ export namespace Prisma {
     firstName: string
     lastName?: string | null
     age?: number | null
+    born?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -1964,6 +1986,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     age?: NullableFloatFieldUpdateOperationsInput | number | null
+    born?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -1973,6 +1996,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: NullableStringFieldUpdateOperationsInput | string | null
     age?: NullableFloatFieldUpdateOperationsInput | number | null
+    born?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -2016,6 +2040,17 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -2037,6 +2072,7 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     age?: SortOrder
+    born?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2050,6 +2086,7 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     age?: SortOrder
+    born?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2059,6 +2096,7 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     age?: SortOrder
+    born?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2117,6 +2155,20 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -2145,6 +2197,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -2188,6 +2244,17 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -2271,6 +2338,20 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {

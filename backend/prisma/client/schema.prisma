@@ -10,12 +10,13 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   firstName String
   lastName  String?
-  age       Float?   @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
+  age       Float?    @default(0)
+  born      DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt()
 
   @@map("users")
 }

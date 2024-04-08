@@ -58,14 +58,20 @@ const createWindow = () => {
 app.on("ready", async () => {
   await prepareNext("./frontend");
 
-  await prisma.$queryRaw`CREATE TABLE IF NOT EXISTS "users" (
-    "id" TEXT NOT NULL PRIMARY KEY,
-    "firstName" TEXT NOT NULL,
-    "lastName" TEXT,
-    "age" REAL DEFAULT 0,
-    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL
+  await prisma.$queryRaw`-- CreateTable
+  CREATE TABLE "users" (
+      "id" TEXT NOT NULL PRIMARY KEY,
+      "firstName" TEXT NOT NULL,
+      "lastName" TEXT,
+      "age" REAL DEFAULT 0,
+      "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      "updatedAt" DATETIME NOT NULL
   );`.catch((e: Error) => console.log({ e: e.message }));
+
+  await prisma.$queryRaw`-- AlterTable
+  ALTER TABLE "users" ADD COLUMN "born" DATETIME;`.catch((e: Error) =>
+    console.log({ e: e.message })
+  );
 
   const columnExists: any =
     await prisma.$queryRaw`SELECT COUNT(*) AS column_exists
