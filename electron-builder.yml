@@ -1,4 +1,3 @@
-name: SC - Next Electron
 productName: SC - Next Electron
 appId: br.com.electron.next
 asar: true
@@ -11,7 +10,8 @@ nsis:
   allowToChangeInstallationDirectory: true
 
 files:
-- frontend
+- main
+- frontend/out
 
 # Windows
 win:
@@ -19,7 +19,7 @@ win:
   - nsis
   # - msi
   # - portable
-  icon: ./build/logo512.png
+  icon: ./build/icon.png
   publish:
   - provider: github
   publisherName: Saulo INC
@@ -28,4 +28,4 @@ win:
 # Mac
 mac:
   target: dmg
-  icon: ./build/logo512.png
+  icon: ./build/icon.png
