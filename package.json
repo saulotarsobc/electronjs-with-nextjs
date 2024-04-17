@@ -17,7 +17,8 @@
     "postinstall": "electron-builder install-app-deps",
     "build": "bun run build-frontend && bun run build-backend",
     "rebuild": "electron-rebuild ",
-    "dist:w": "bun run build && electron-builder -w"
+    "dist:w": "bun run build && electron-builder -w",
+    "dist:l": "bun run build && electron-builder -l"
   },
   "dependencies": {
     "@npmcli/fs": "^3.1.0",
