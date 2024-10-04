@@ -1,8 +1,8 @@
 import { ipcMain } from "electron";
 import { app, BrowserWindow } from "electron/main";
 import { join } from "node:path";
-import { Model } from "sequelize";
-import { sequelize, User } from "./database";
+import { database } from "./database";
+import { User } from "./database/entitys/User";
 import { isDev } from "./utils/env";
 import { initLogs } from "./utils/initLogs";
 import { prepareNext } from "./utils/prepareNext";
@@ -38,19 +38,12 @@ app.whenReady().then(async () => {
 
   await initLogs();
 
-  await sequelize
-    .sync({
-      logging: true,
-      alter: true,
-
-      // this is used for development.
-      // If you want to reset the database, set this to true and run the script again.
-      // Otherwise, set it to false.
-      force: false,
+  await database
+    .initialize()
+    .then(async () => {
+      console.log("++++++++++++++++Database synchronized+++++++++++++++++++");
     })
-    .then(() => {
-      console.log("Database synced");
-    });
+    .catch((error) => console.log(error));
 
   createWindow();
 
@@ -65,11 +58,17 @@ app.on("window-all-closed", () => {
 
 /* ++++++++++ code ++++++++++ */
 ipcMain.on("addUser", async (event, data: any) => {
-  await User.create(data)
-    .then((data: Model) => {
+  const user = new User();
+  user.name = data.name;
+  user.email = "mail@example.com";
+  user.password = "123456";
+
+  await database.manager
+    .save(user)
+    .then((data) => {
       event.returnValue = {
         error: false,
-        data: data.dataValues,
+        data,
       };
     })
     .catch((error) => {

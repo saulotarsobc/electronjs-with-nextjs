@@ -1,28 +1,15 @@
-import { DataTypes, Sequelize } from "sequelize";
+import { DataSource } from "typeorm";
+
 import databasePath from "../utils/databasePath";
 
-export const sequelize = new Sequelize({
-  dialect: "sqlite",
-  storage: databasePath,
-  logging: false,
-});
+import { Leads } from "./entitys/Leads";
+import { LeadsNotes } from "./entitys/LeadsNotes";
+import { Notes } from "./entitys/Notes";
+import { User } from "./entitys/User";
 
-export const User = sequelize.define(
-  "users",
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    name: {
-      type: DataTypes.STRING,
-    },
-  },
-  {
-    timestamps: true,
-    createdAt: true,
-    updatedAt: "updateTimestamp",
-    comment: "Users table",
-  }
-);
+export const database = new DataSource({
+  type: "sqlite",
+  database: databasePath,
+  entities: [User, Notes, LeadsNotes, Leads],
+  synchronize: true,
+});

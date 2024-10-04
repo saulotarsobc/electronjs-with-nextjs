@@ -6,10 +6,7 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": false,
@@ -21,14 +18,12 @@
     "strict": true,
     "target": "esnext",
     "outDir": "../dist",
-    "removeComments": true
+    "removeComments": true,
+
+    "experimentalDecorators": true, // Habilita decorators
+    "emitDecoratorMetadata": true, // Emite metadados necessários para os decorators
+    "strictPropertyInitialization": false // Desativa essa verificação
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"]
 }
