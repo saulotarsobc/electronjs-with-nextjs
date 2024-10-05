@@ -35,11 +35,8 @@ function createWindow(): void {
 
 app.whenReady().then(async () => {
   await prepareNext("./frontend", 4444);
-
-  await initLogs();
-
+  initLogs();
   createWindow();
-
   app.on("activate", async () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
     await database.close();
@@ -53,6 +50,7 @@ app.on("window-all-closed", () => {
 /* ++++++++++ code ++++++++++ */
 ipcMain.on("addUser", async (event, data: any) => {
   const user = new User();
+
   user.name = data.name;
   user.email = "mail@example.com";
   user.password = "123456";
