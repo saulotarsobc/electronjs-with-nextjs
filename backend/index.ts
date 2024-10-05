@@ -37,15 +37,14 @@ app.whenReady().then(async () => {
   await prepareNext("./frontend", 4444);
   initLogs();
   createWindow();
-  app.on("activate", async () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-    await database.close();
-  });
+
+  app.on(
+    "activate",
+    async () => BrowserWindow.getAllWindows().length === 0 && createWindow()
+  );
 });
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") app.quit();
-});
+app.on("window-all-closed", () => process.platform !== "darwin" && app.quit());
 
 /* ++++++++++ code ++++++++++ */
 ipcMain.on("addUser", async (event, data: any) => {
@@ -58,15 +57,9 @@ ipcMain.on("addUser", async (event, data: any) => {
   await database.manager
     .save(user)
     .then((data) => {
-      event.returnValue = {
-        error: false,
-        data,
-      };
+      event.returnValue = { error: false, data };
     })
     .catch((error) => {
-      event.returnValue = {
-        error: true,
-        data: error,
-      };
+      event.returnValue = { error: true, data: error };
     });
 });

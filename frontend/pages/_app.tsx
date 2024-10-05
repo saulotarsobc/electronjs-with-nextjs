@@ -7,8 +7,11 @@ import { Notifications } from "@mantine/notifications";
 import "@mantine/notifications/styles.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { description, displayName, version } from "../../package.json";
-const pageTitle = `${displayName} - v${version}`;
+
+const [pageTitle, description] = [
+  `Electronjs with Nextjs - v7`,
+  "Electronjs with Nextjs Description",
+];
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

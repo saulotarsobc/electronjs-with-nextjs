@@ -16,7 +16,4 @@ export class User {
 
   @Column({ nullable: false })
   password: string;
-
-  // @OneToMany(() => LeadsNotes, (leadsNotes) => leadsNotes.user)
-  // leadsNotes: LeadsNotes[];
 }
