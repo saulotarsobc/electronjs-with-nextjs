@@ -1,7 +1,7 @@
 import { ipcMain } from "electron";
 import { app, BrowserWindow } from "electron/main";
 import { join } from "node:path";
-import { database, dropUnusedTables } from "./database";
+import { database } from "./database";
 import { User } from "./database/entitys/User";
 import { isDev } from "./utils/env";
 import { initLogs } from "./utils/initLogs";
@@ -38,21 +38,11 @@ app.whenReady().then(async () => {
 
   await initLogs();
 
-  await database
-    .initialize()
-    .then(async () => {
-      console.log("++++++++++++++++Database synchronized+++++++++++++++++++");
-    })
-    .catch((error) => console.log(error));
-
-  await dropUnusedTables().catch(() => {
-    console.log("++++++++++++++++Database not synchronized+++++++++++++++++++");
-  });
-
   createWindow();
 
-  app.on("activate", () => {
+  app.on("activate", async () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    await database.close();
   });
 });
 

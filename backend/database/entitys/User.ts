@@ -1,5 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { LeadsNotes } from "./LeadsNotes";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({
   name: "users",
@@ -18,6 +17,6 @@ export class User {
   @Column({ nullable: false })
   password: string;
 
-  @OneToMany(() => LeadsNotes, (leadsNotes) => leadsNotes.user)
-  leadsNotes: LeadsNotes[];
+  // @OneToMany(() => LeadsNotes, (leadsNotes) => leadsNotes.user)
+  // leadsNotes: LeadsNotes[];
 }

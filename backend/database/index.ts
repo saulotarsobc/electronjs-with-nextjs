@@ -1,36 +1,64 @@
-import { DataSource } from "typeorm";
-
+import { DataSource, Logger as TypeOrmLogger } from "typeorm";
 import databasePath from "../utils/databasePath";
 
-import { LeadsNotes } from "./entitys/LeadsNotes";
-import { Notes } from "./entitys/Notes";
+import Logger from "electron-log";
 import { User } from "./entitys/User";
+
+// Classe personalizada de logger para o TypeORM
+class ElectronLogger implements TypeOrmLogger {
+  logQuery(query: string, parameters?: any[]) {
+    Logger.log(`Query: ${query} Parameters: ${parameters}`);
+  }
+
+  logQueryError(error: string | Error, query: string, parameters?: any[]) {
+    Logger.error(
+      `Query Failed: ${query} Parameters: ${parameters} Error: ${error}`
+    );
+  }
+
+  logQuerySlow(time: number, query: string, parameters?: any[]) {
+    Logger.warn(
+      `Query is slow: ${time}ms. Query: ${query} Parameters: ${parameters}`
+    );
+  }
+
+  logSchemaBuild(message: string) {
+    Logger.log(`Schema Build: ${message}`);
+  }
+
+  logMigration(message: string) {
+    Logger.log(`Migration: ${message}`);
+  }
+
+  log(level: "log" | "info" | "warn", message: any) {
+    switch (level) {
+      case "log":
+        Logger.log(message);
+        break;
+      case "info":
+        Logger.info(message);
+        break;
+      case "warn":
+        Logger.warn(message);
+        break;
+    }
+  }
+}
 
 export const database = new DataSource({
   type: "sqlite",
   database: databasePath,
-  entities: [User, Notes, LeadsNotes],
+  entities: [User],
   synchronize: true,
+  logging: true,
+  logger: new ElectronLogger(),
 });
 
-// Função para deletar tabelas não utilizadas
-export async function dropUnusedTables() {
-  const connection = await database.initialize();
-
-  const queryRunner = connection.createQueryRunner();
-
-  // Lista de tabelas que você quer manter
-  const tablesToKeep = ["User", "Notes", "LeadsNotes"];
-
-  const allTables = await queryRunner.getTables();
-
-  for (const table of allTables) {
-    if (!tablesToKeep.includes(table.name)) {
-      await queryRunner.dropTable(table);
-      console.log(`Tabela ${table.name} deletada.`);
-    }
-  }
-
-  await queryRunner.release();
-  await connection.destroy();
-}
+database
+  .initialize()
+  .then(() => {
+    Logger.log("DB initiated!");
+  })
+  .catch(() => {
+    Logger.log("DB not initiated!");
+  });
