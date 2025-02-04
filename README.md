@@ -1,11 +1,5 @@
 # electronjs-with-nextjs
 
-- <img alt="Version" src="https://img.shields.io/github/v/release/microsoft/TypeScript.svg"> Typescript
-- <img alt="Version" src="https://img.shields.io/github/v/release/vercel/next.js.svg"> NextJS
-- <img alt="Version" src="https://img.shields.io/github/v/release/facebook/react.svg"> ReactJS
-- <img alt="Version" src="https://img.shields.io/github/v/release/mantinedev/mantine.svg"> Mantine UI
-- <img alt="Version" src="https://img.shields.io/github/v/release/sequelize/sequelize.svg"> Sequelize
-
 <div align="center">
   <img alt="Stars" src="https://img.shields.io/github/stars/saulotarsobc/electronjs-with-nextjs.svg">
   <img alt="Forks" src="https://img.shields.io/github/forks/saulotarsobc/electronjs-with-nextjs.svg">
@@ -22,6 +16,15 @@
 </div>
 
 ---
+
+<div align="center">
+  <img alt="Static Badge" src="https://img.shields.io/badge/NodeJS-v22-44883e">
+  <img alt="Static Badge" src="https://img.shields.io/badge/TypeScript-v5-blue">
+  <img alt="Static Badge" src="https://img.shields.io/badge/NestJS-v15-black">
+  <img alt="Static Badge" src="https://img.shields.io/badge/ReactJS-v19-61DAFB">
+  <img alt="Static Badge" src="https://img.shields.io/badge/Mantine-v7-3498db">
+  <img alt="Static Badge" src="https://img.shields.io/badge/Sequelize-v6-52B0E7">
+</div>
 
 <div align="center">
   <img alt="demo" src="./demo/demo.gif">
