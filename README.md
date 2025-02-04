@@ -1,10 +1,6 @@
 # Electron + Typescript + Next + Mantine UI + Sequelize(sqlite3)
 
 <div align="center">
-  <img alt="demo" src="./demo/demo.gif">
-</div>
-
-<div align="center">
    <!-- <img alt="Build Status" src="https://img.shields.io/travis/saulotarsobc/scripts.svg"> -->
    <!-- <img alt="Test Coverage" src="https://img.shields.io/codecov/c/github/saulotarsobc/scripts.svg"> -->
    <img alt="Version" src="https://img.shields.io/github/v/release/saulotarsobc/electronjs-with-nextjs.svg">
@@ -13,6 +9,10 @@
    <img alt="Contributors" src="https://img.shields.io/github/contributors/saulotarsobc/electronjs-with-nextjs.svg">
    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/saulotarsobc/electronjs-with-nextjs.svg">
    <img alt="Stars" src="https://img.shields.io/github/stars/saulotarsobc/electronjs-with-nextjs.svg">
+</div>
+
+<div align="center">
+  <img alt="demo" src="./demo/demo.gif">
 </div>
 
 ---
