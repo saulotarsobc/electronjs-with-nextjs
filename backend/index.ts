@@ -7,13 +7,6 @@ import { isDev } from "./utils/env";
 import { initLogs } from "./utils/initLogs";
 import { prepareNext } from "./utils/prepareNext";
 
-/**
- * Creates a new BrowserWindow with the specified dimensions and web preferences.
- * If in development mode, the window loads the local development server URL,
- * otherwise it loads the built frontend index.html file.
- *
- * @return {void}
- */
 function createWindow(): void {
   const win = new BrowserWindow({
     width: 900,
@@ -27,11 +20,11 @@ function createWindow(): void {
 
   if (isDev) {
     win.loadURL("http://localhost:4444/");
-    win.maximize();
     win.webContents.openDevTools();
+    win.maximize();
   } else {
-    win.setMenu(null);
     win.loadFile(join(__dirname, "..", "frontend", "out", "index.html"));
+    win.setMenu(null);
   }
 }
 

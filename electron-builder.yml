@@ -1,4 +1,6 @@
 electronVersion: 34.0.2
+asar: true
+compression: normal
 productName: SC - Next Electron
 appId: br.com.electron.next
 icon: public/icon.png
@@ -15,10 +17,17 @@ win:
   target:
     - nsis
   icon: ./public/icon.png
-  artifactName: ${productName}-Setup-${version}.${ext}
+  artifactName: ${name}-${version}-windows-${arch}.${ext}
+nsis:
+  artifactName: ${name}-${version}-windows-${arch}-nsis-installer.${ext}
+  allowToChangeInstallationDirectory: true
+  oneClick: false
+  perMachine: true
 mac:
   target: dmg
   icon: ./public/icon.png
+  artifactName: ${productName}-Setup-${version}.${ext}
+  darkModeSupport: true
 linux:
   target:
     - AppImage
