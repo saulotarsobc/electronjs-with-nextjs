@@ -26,6 +26,8 @@
   <img alt="Static Badge" src="https://img.shields.io/badge/Sequelize-v6-52B0E7">
 </div>
 
+---
+
 <div align="center">
   <img alt="demo" src="./demo/demo.gif">
 </div>
