@@ -1,11 +1,15 @@
-# Electron + Typescript + Next + Mantine UI + Sequelize(sqlite3)
+# electronjs-with-nextjs
+
+- <img alt="Version" src="https://img.shields.io/github/v/release/microsoft/TypeScript.svg"> Typescript
+- <img alt="Version" src="https://img.shields.io/github/v/release/vercel/next.js.svg"> NextJS
+- <img alt="Version" src="https://img.shields.io/github/v/release/facebook/react.svg"> ReactJS
+- <img alt="Version" src="https://img.shields.io/github/v/release/mantinedev/mantine.svg"> Mantine UI
+- <img alt="Version" src="https://img.shields.io/github/v/release/sequelize/sequelize.svg"> Sequelize
 
 <div align="center">
   <img alt="Stars" src="https://img.shields.io/github/stars/saulotarsobc/electronjs-with-nextjs.svg">
   <img alt="Forks" src="https://img.shields.io/github/forks/saulotarsobc/electronjs-with-nextjs.svg">
 </div>
-
-
 
 <div align="center">
   <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
