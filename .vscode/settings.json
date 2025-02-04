@@ -1,17 +1,16 @@
 {
-  "editor.tabSize": 4,
-  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports": "explicit",
     "source.removeUnusedImports": "explicit",
     "source.addMissingImports.ts": "explicit"
   },
   "yaml.schemas": {
-    "https://raw.githubusercontent.com/electron-userland/electron-builder/refs/heads/master/packages/app-builder-lib/scheme.json": ["electron-builder.yml"]
+    "https://raw.githubusercontent.com/electron-userland/electron-builder/refs/heads/master/packages/app-builder-lib/scheme.json": [
+      "electron-builder.yml"
+    ]
   },
   "yaml.validate": true,
   "yaml.format.enable": true,
   "yaml.hover": true,
-  "yaml.completion": true,
-  "prettier.requireConfig": true
+  "yaml.completion": true
 }

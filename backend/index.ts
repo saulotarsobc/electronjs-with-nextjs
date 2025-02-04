@@ -25,12 +25,14 @@ function createWindow(): void {
     },
   });
 
-  isDev
-    ? win.loadURL("http://localhost:4444/")
-    : win.loadFile(join(__dirname, "..", "frontend", "out", "index.html"));
-
-  isDev && win.webContents.openDevTools();
-  isDev && win.maximize();
+  if (isDev) {
+    win.loadURL("http://localhost:4444/");
+    win.maximize();
+    win.webContents.openDevTools();
+  } else {
+    win.setMenu(null);
+    win.loadFile(join(__dirname, "..", "frontend", "out", "index.html"));
+  }
 }
 
 app.whenReady().then(async () => {

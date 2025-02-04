@@ -1,4 +1,4 @@
-electronVersion: 30.5.1
+electronVersion: 34.0.2
 productName: SC - Next Electron
 appId: br.com.electron.next
 icon: public/icon.png
