@@ -1,5 +1,5 @@
-import { exec } from "node:child_process";
 import Logger from "electron-log";
+import { exec } from "node:child_process";
 import { join } from "node:path";
 import databasePath from "./databasePath";
 
