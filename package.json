@@ -1,7 +1,7 @@
 {
   "name": "sc-next-electron",
   "displayName": "Electronjs with Nextjs",
-  "version": "9.0.2",
+  "version": "9.0.3",
   "description": "Electronjs with Nextjs",
   "private": false,
   "license": "MIT",
@@ -35,7 +35,7 @@
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "electron": "^34.0.2",
+    "electron": "^34.1.0",
     "electron-builder": "^25.1.8",
     "next": "^15.1.6",
     "postcss": "^8.5.1",
