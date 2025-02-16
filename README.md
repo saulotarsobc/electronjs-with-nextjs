@@ -60,3 +60,13 @@ npm run dev;
   - `npm run build:backend`: Build backend with TypeScript.
 - `npm run postinstall`: Install dependencies for Electron.
 - `npm run dist`: Build and make a distribution package with Electron Builder.
+
+## Git Commands
+
+### Release
+
+```bash
+#! bash
+git tag "v$1"
+git push origin --tags
+```
