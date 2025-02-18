@@ -13,7 +13,7 @@ files:
   - frontend/out
 
 directories:
-  output: out/v${version}
+  output: out
 
 publish:
   - provider: github
