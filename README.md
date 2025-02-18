@@ -19,6 +19,7 @@
 
 <div align="center">
   <img alt="Static Badge" src="https://img.shields.io/badge/ElectronJS-v34-46816e">
+  <img alt="Static Badge" src="https://img.shields.io/badge/Electron Builder-v25-blue">
   <img alt="Static Badge" src="https://img.shields.io/badge/NodeJS-v22-44883e">
   <img alt="Static Badge" src="https://img.shields.io/badge/TypeScript-v5-blue">
   <img alt="Static Badge" src="https://img.shields.io/badge/NestJS-v15-black">
