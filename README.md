@@ -29,7 +29,7 @@
 ---
 
 <div align="center">
-  <img alt="demo" src="./demo/prints.png">
+  <img alt="demo" src="./demo/demo.png">
 </div>
 
 ---
