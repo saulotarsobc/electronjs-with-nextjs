@@ -1,7 +1,7 @@
 {
   "name": "sc-next-electron",
   "displayName": "Electronjs with Nextjs",
-  "version": "9.0.0",
+  "version": "10.0.0",
   "description": "Electronjs with Nextjs",
   "private": false,
   "license": "MIT",
