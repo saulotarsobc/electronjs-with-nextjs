@@ -18,19 +18,18 @@
 ---
 
 <div align="center">
-  <img alt="Static Badge" src="https://img.shields.io/badge/ElectronJS-v34.1.0-46816e">
+  <img alt="Static Badge" src="https://img.shields.io/badge/ElectronJS-v34-46816e">
   <img alt="Static Badge" src="https://img.shields.io/badge/NodeJS-v22-44883e">
   <img alt="Static Badge" src="https://img.shields.io/badge/TypeScript-v5-blue">
   <img alt="Static Badge" src="https://img.shields.io/badge/NestJS-v15-black">
   <img alt="Static Badge" src="https://img.shields.io/badge/ReactJS-v19-61DAFB">
-  <img alt="Static Badge" src="https://img.shields.io/badge/Mantine-v7-3498db">
   <img alt="Static Badge" src="https://img.shields.io/badge/Sequelize-v6-52B0E7">
 </div>
 
 ---
 
 <div align="center">
-  <img alt="demo" src="./demo/demo.gif">
+  <img alt="demo" src="./demo/prints.png">
 </div>
 
 ---
