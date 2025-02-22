@@ -19,9 +19,9 @@
 
 <!-- Badge Start -->
 <div align="center">
+ <img alt="static badge from nodejs" src="https://img.shields.io/badge/NodeJS-v22.14.0-44883e">
  <img alt="static badge from electronjs" src="https://img.shields.io/badge/ElectronJS-v34.2.0-46816e">
  <img alt="static badge from electron builder" src="https://img.shields.io/badge/Electron%20Builder-v25.1.8-blue">
- <img alt="static badge from nodejs" src="https://img.shields.io/badge/NodeJS-v22.13.5-44883e">
  <img alt="static badge from typescript" src="https://img.shields.io/badge/TypeScript-v5.7.3-blue">
  <img alt="static badge from nextjs" src="https://img.shields.io/badge/NextJS-v15.1.7-black">
  <img alt="static badge from reactjs" src="https://img.shields.io/badge/ReactJS-v19.0.0-61DAFB">
