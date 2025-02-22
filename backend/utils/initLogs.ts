@@ -1,7 +1,7 @@
 import Logger from "electron-log";
 import { exec } from "node:child_process";
 import { join } from "node:path";
-import databasePath from "./databasePath";
+import { databasePath } from "./databasePath";
 
 /**
  * Initializes the logs by executing a command to list the files in the specified directory.

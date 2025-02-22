@@ -2,7 +2,7 @@ import { resolve } from "app-root-path";
 import { app, protocol } from "electron";
 import { createServer } from "http";
 import { isAbsolute, join, normalize } from "path";
-import { isDev } from "./env";
+import { isDev } from "./isDev";
 
 /**
  * Starts a development server for the Next.js application.

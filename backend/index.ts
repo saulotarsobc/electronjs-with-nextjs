@@ -1,11 +1,8 @@
-import { ipcMain } from "electron";
-import { app, BrowserWindow } from "electron/main";
+import { app, BrowserWindow, ipcMain } from "electron";
 import { join } from "node:path";
 import { Model } from "sequelize";
 import { sequelize, User } from "./database";
-import { isDev } from "./utils/env";
-import { initLogs } from "./utils/initLogs";
-import { prepareNext } from "./utils/prepareNext";
+import { initLogs, isDev, prepareNext } from "./utils";
 
 /**
  * Creates the main application window.

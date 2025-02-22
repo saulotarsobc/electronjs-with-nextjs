@@ -1,5 +1,5 @@
 import { DataTypes, Sequelize } from "sequelize";
-import databasePath from "../utils/databasePath";
+import { databasePath } from "../utils";
 
 export const sequelize = new Sequelize({
   dialect: "sqlite",
