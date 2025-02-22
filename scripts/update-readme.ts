@@ -9,7 +9,7 @@ const dependencies = {
   "Electron Builder": packageJson.devDependencies["electron-builder"],
   NodeJS: packageJson.devDependencies["@types/node"],
   TypeScript: packageJson.devDependencies.typescript,
-  NestJS: packageJson.devDependencies.next,
+  NextJS: packageJson.devDependencies.next,
   ReactJS: packageJson.devDependencies.react,
   Sequelize: packageJson.dependencies.sequelize,
 };
@@ -19,7 +19,7 @@ const badgeColors = {
   "Electron Builder": "blue",
   NodeJS: "44883e",
   TypeScript: "blue",
-  NestJS: "black",
+  NextJS: "black",
   ReactJS: "61DAFB",
   Sequelize: "52B0E7",
 };
