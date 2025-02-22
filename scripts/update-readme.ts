@@ -1,13 +1,14 @@
-import fs from "fs";
-import path from "path";
+import { readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 
-const packageJsonPath = path.join(__dirname, "../package.json");
-const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+const packageJsonPath = join(__dirname, "../package.json");
+const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf-8"));
+const nodeVersion = process.version.split("v")[1];
 
 const dependencies = {
+  NodeJS: nodeVersion,
   ElectronJS: packageJson.devDependencies.electron,
   "Electron Builder": packageJson.devDependencies["electron-builder"],
-  NodeJS: packageJson.devDependencies["@types/node"],
   TypeScript: packageJson.devDependencies.typescript,
   NextJS: packageJson.devDependencies.next,
   ReactJS: packageJson.devDependencies.react,
@@ -41,8 +42,8 @@ const badgesString = `<div align="center">\n${badges.join("\n")}\n</div>`;
 
 console.log(badgesString);
 
-const readmePath = path.join(__dirname, "../README.md");
-const readmeContent = fs.readFileSync(readmePath, "utf-8");
+const readmePath = join(__dirname, "../README.md");
+const readmeContent = readFileSync(readmePath, "utf-8");
 
 const badgeStart = "<!-- Badge Start -->";
 const badgeEnd = "<!-- Badge End -->";
@@ -52,4 +53,4 @@ const updatedReadmeContent = readmeContent.replace(
   `${badgeStart}\n${badgesString}\n${badgeEnd}`
 );
 
-fs.writeFileSync(readmePath, updatedReadmeContent, "utf-8");
+writeFileSync(readmePath, updatedReadmeContent, "utf-8");
