@@ -26,12 +26,12 @@ const badgeColors = {
 
 const badges = Object.entries(dependencies).map(([name, version]) => {
   if (typeof version === "string") {
-    return ` <img alt="Static Badge" src="https://img.shields.io/badge/${name.replace(
+    return ` <img alt="static badge from ${name.toLocaleLowerCase()}" src="https://img.shields.io/badge/${name.replace(
       / /g,
       "%20"
     )}-v${version.replace("^", "")}-${badgeColors[name]}">`;
   }
-  return ` <img alt="Static Badge" src="https://img.shields.io/badge/${name.replace(
+  return ` <img alt="static badge from ${name.toLocaleLowerCase()}" src="https://img.shields.io/badge/${name.replace(
     / /g,
     "%20"
   )}-vN/A-${badgeColors[name]}">`;
@@ -40,3 +40,16 @@ const badges = Object.entries(dependencies).map(([name, version]) => {
 const badgesString = `<div align="center">\n${badges.join("\n")}\n</div>`;
 
 console.log(badgesString);
+
+const readmePath = path.join(__dirname, "../README.md");
+const readmeContent = fs.readFileSync(readmePath, "utf-8");
+
+const badgeStart = "<!-- Badge Start -->";
+const badgeEnd = "<!-- Badge End -->";
+
+const updatedReadmeContent = readmeContent.replace(
+  new RegExp(`${badgeStart}[\\s\\S]*?${badgeEnd}`),
+  `${badgeStart}\n${badgesString}\n${badgeEnd}`
+);
+
+fs.writeFileSync(readmePath, updatedReadmeContent, "utf-8");
