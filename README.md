@@ -17,15 +17,17 @@
 
 ---
 
+<!-- Badge Start -->
 <div align="center">
-  <img alt="Static Badge" src="https://img.shields.io/badge/ElectronJS-v34-46816e">
-  <img alt="Static Badge" src="https://img.shields.io/badge/Electron Builder-v25-blue">
-  <img alt="Static Badge" src="https://img.shields.io/badge/NodeJS-v22-44883e">
-  <img alt="Static Badge" src="https://img.shields.io/badge/TypeScript-v5-blue">
-  <img alt="Static Badge" src="https://img.shields.io/badge/NestJS-v15-black">
-  <img alt="Static Badge" src="https://img.shields.io/badge/ReactJS-v19-61DAFB">
-  <img alt="Static Badge" src="https://img.shields.io/badge/Sequelize-v6-52B0E7">
+ <img alt="Static Badge" src="https://img.shields.io/badge/ElectronJS-v34.2.0-46816e">
+ <img alt="Static Badge" src="https://img.shields.io/badge/Electron%20Builder-v25.1.8-blue">
+ <img alt="Static Badge" src="https://img.shields.io/badge/NodeJS-v22.13.5-44883e">
+ <img alt="Static Badge" src="https://img.shields.io/badge/TypeScript-v5.7.3-blue">
+ <img alt="Static Badge" src="https://img.shields.io/badge/NestJS-v15.1.7-black">
+ <img alt="Static Badge" src="https://img.shields.io/badge/ReactJS-v19.0.0-61DAFB">
+ <img alt="Static Badge" src="https://img.shields.io/badge/Sequelize-v6.37.5-52B0E7">
 </div>
+<!-- Badge End -->
 
 ---
 

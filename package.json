@@ -18,7 +18,8 @@
     "build:frontend": "next build frontend",
     "build:backend": "tsc -p backend",
     "postinstall": "electron-builder install-app-deps",
-    "dist": "npm run build && npx electron-builder"
+    "dist": "npm run build && npx electron-builder",
+    "update:readme": "tsx scripts/update-readme.js"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.30.0",
@@ -43,6 +44,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rimraf": "^6.0.1",
-    "tailwindcss": "^4.0.8"
+    "tailwindcss": "^4.0.8",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
   }
 }
