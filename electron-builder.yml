@@ -3,7 +3,6 @@ asar: true
 compression: normal
 productName: SC - Next Electron
 appId: br.com.electron.next
-icon: public/icon.png
 
 extraMetadata:
   main: dist/index.js
