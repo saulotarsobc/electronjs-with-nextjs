@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "npm run build:backend && electron . --dev",
-    "prebuild": "rimraf build && rimraf dist",
+    "prebuild": "rimraf out && rimraf dist && rimraf frontend/.next && rimraf frontend/out",
     "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "next build frontend",
     "build:backend": "tsc -p backend",
