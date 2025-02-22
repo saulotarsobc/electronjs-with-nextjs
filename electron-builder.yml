@@ -1,4 +1,4 @@
-electronVersion: 34.1.0
+electronVersion: 34.2.0
 asar: true
 compression: normal
 productName: SC - Next Electron
