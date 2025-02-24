@@ -8,7 +8,7 @@ import { databasePath } from "./databasePath";
  *
  * @return {Promise<void>} A promise that resolves when the logs have been initialized.
  */
-export async function initLogs(): Promise<void> {
+export function initLogs(): void {
   const directoryPath = join(__dirname, "..", "..");
   const command =
     process.platform === "win32"
