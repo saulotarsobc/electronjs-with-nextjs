@@ -1,4 +1,8 @@
-# electronjs-with-nextjs
+# ElectronJS with NextJS
+
+> A template to build an ElectronJS app with NextJS
+
+---
 
 <div align="center">
   <img alt="Stars" src="https://img.shields.io/github/stars/saulotarsobc/electronjs-with-nextjs.svg">
@@ -62,6 +66,54 @@ npm run dev;
   - `npm run build:backend`: Build backend with TypeScript.
 - `npm run postinstall`: Install dependencies for Electron.
 - `npm run dist`: Build and make a distribution package with Electron Builder.
+
+## electron-builder Configutarion to this project
+
+```yaml
+electronVersion: 34.2.0
+asar: true
+compression: normal
+productName: SC - Next Electron
+appId: br.com.electron.next
+
+extraMetadata:
+  main: dist/index.js
+
+files:
+  - dist
+  - frontend/out
+
+directories:
+  output: out
+
+publish:
+  - provider: github
+
+win:
+  target:
+    - nsis
+  icon: ./public/icon.png
+  artifactName: ${name}-${version}-windows-${arch}.${ext}
+
+nsis:
+  artifactName: ${name}-${version}-windows-${arch}-nsis-installer.${ext}
+  allowToChangeInstallationDirectory: true
+  oneClick: false
+  perMachine: true
+
+mac:
+  target: dmg
+  icon: ./public/icon.png
+  artifactName: ${productName}-Setup-${version}.${ext}
+  darkModeSupport: true
+
+linux:
+  target:
+    - AppImage
+    - deb
+  icon: ./public/icon.png
+  artifactName: ${productName}-Setup-${version}.${ext}
+```
 
 ## Git Commands
 
