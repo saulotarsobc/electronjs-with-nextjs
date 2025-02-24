@@ -25,6 +25,5 @@ export function initLogs(): void {
   });
 
   Logger.info("DIRNAME: ", directoryPath);
-
   Logger.info("DATABASE: ", databasePath);
 }

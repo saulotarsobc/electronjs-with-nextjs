@@ -1,6 +1,7 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { join } from "node:path";
 import { Model } from "sequelize";
+import { PORT } from "./constants";
 import { sequelize, User } from "./database";
 import { initLogs, isDev, prepareNext } from "./utils";
 
@@ -35,7 +36,7 @@ function createWindow(): void {
   });
 
   if (isDev) {
-    win.loadURL("http://localhost:4444/");
+    win.loadURL(`http://localhost:${PORT}/`);
     win.webContents.openDevTools();
     win.maximize();
   } else {
@@ -53,15 +54,12 @@ function createWindow(): void {
  * @returns {Promise<void>} A Promise that resolves when all the setup is done.
  */
 app.whenReady().then(async () => {
-  await prepareNext("./frontend", 4444);
-
-  await initLogs();
-
+  initLogs();
+  await prepareNext("./frontend", PORT);
   await sequelize
     .sync({
       logging: true,
       alter: true,
-
       // this is used for development.
       // If you want to reset the database, set this to true and run the script again.
       // Otherwise, set it to false.

@@ -2,13 +2,14 @@ import { resolve } from "app-root-path";
 import { app, protocol } from "electron";
 import { createServer } from "http";
 import { isAbsolute, join, normalize } from "path";
+import { PORT } from "../constants";
 import { isDev } from "./isDev";
 
 /**
  * Starts a development server for the Next.js application.
  *
  * @param {any} dir - The directory of the Next.js application.
- * @param {any} port - The port number to run the development server on. Defaults to 4000 if not provided.
+ * @param {any} port - The port number to run the development server on. Defaults to $PORT(constant) if not provided.
  * @return {Promise<void>} A promise that resolves when the development server is started.
  */
 const devServer = async (dir: any, port: any): Promise<void> => {
@@ -18,7 +19,7 @@ const devServer = async (dir: any, port: any): Promise<void> => {
 
   const server = createServer(requestHandler);
 
-  server.listen(port || 4000, () => {
+  server.listen(port || PORT, () => {
     app.on("before-quit", () => server.close());
   });
 };
@@ -65,7 +66,7 @@ const adjustRenderer = (directory: any): void => {
  * Prepares the Next.js application for rendering.
  *
  * @param {any} directories - The directories containing the Next.js application. Can be a string or an object with production and development properties.
- * @param {any} port - The port number to run the development server on. Defaults to 4000 if not provided.
+ * @param {any} port - The port number to run the development server on. Defaults to PORT if not provided.
  * @throws {Error} If the renderer location is not defined.
  * @return {Promise<void>} A Promise that resolves when the Next.js application is prepared for rendering.
  */
