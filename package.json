@@ -22,7 +22,6 @@
     "update:readme": "tsx scripts/update-readme.js"
   },
   "dependencies": {
-    "@tabler/icons-react": "^3.30.0",
     "app-root-path": "^3.1.0",
     "electron-log": "^5.3.0",
     "sequelize": "^6.37.5",
