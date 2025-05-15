@@ -1,8 +1,8 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { join } from "node:path";
-import { prepareNext } from "sc-prepare-next";
+import { isDev, prepareNext } from "sc-prepare-next";
 import { Model } from "sequelize";
-import { isDev, PORT } from "./constants";
+import { PORT } from "./constants";
 import { sequelize, User } from "./database";
 import { initLogs } from "./utils";
 
@@ -83,7 +83,7 @@ app.on("window-all-closed", () => {
 });
 
 /* ++++++++++ code ++++++++++ */
-ipcMain.on("addUser", async (event, data: any) => {
+ipcMain.on("addUser", async (event, data: { dataValues: unknown }) => {
   await User.create(data)
     .then((data: Model) => {
       event.returnValue = {

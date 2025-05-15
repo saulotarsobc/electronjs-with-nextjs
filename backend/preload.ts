@@ -8,8 +8,8 @@ export const api = {
    * @param {Function} callback - The callback function to be invoked when a message is received.
    *                             The callback function will receive two parameters: the event object and the message data.
    */
-  on: (channel: string, callback: Function) => {
-    ipcRenderer.on(channel, (event: IpcRendererEvent, args: any) =>
+  on: (channel: string, callback: (event: IpcRendererEvent, args: unknown) => void) => {
+    ipcRenderer.on(channel, (event: IpcRendererEvent, args: unknown) =>
       callback(event, args)
     );
   },
@@ -21,7 +21,7 @@ export const api = {
    * @param {any} args - The arguments to send along with the message.
    * @return {void} This function does not return anything.
    */
-  send: (channel: string, args: any): void => {
+  send: (channel: string, args: unknown): void => {
     ipcRenderer.send(channel, args);
   },
 
@@ -32,7 +32,7 @@ export const api = {
    * @param {any} args - The arguments to send along with the message.
    * @return {any} The response from the main process.
    */
-  sendSync: (channel: string, args: any): any => {
+  sendSync: (channel: string, args: unknown): unknown => {
     return ipcRenderer.sendSync(channel, args);
   },
 };
