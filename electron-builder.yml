@@ -1,4 +1,4 @@
-electronVersion: 34.2.0
+electronVersion: 36.2.0
 asar: true
 compression: normal
 productName: SC - Next Electron
@@ -22,6 +22,7 @@ win:
     - nsis
   icon: ./public/icon.png
   artifactName: ${name}-${version}-windows-${arch}.${ext}
+  signAndEditExecutable: false
 
 nsis:
   artifactName: ${name}-${version}-windows-${arch}-nsis-installer.${ext}
@@ -34,6 +35,7 @@ mac:
   icon: ./public/icon.png
   artifactName: ${productName}-Setup-${version}.${ext}
   darkModeSupport: true
+  signIgnore: null
 
 linux:
   target:
