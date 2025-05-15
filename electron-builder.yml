@@ -20,7 +20,7 @@ publish:
 win:
   target:
     - nsis
-  icon: ./public/icon.png
+  icon: ./build/icon.ico
   artifactName: ${name}-${version}-windows-${arch}.${ext}
   signAndEditExecutable: false
 
@@ -29,10 +29,11 @@ nsis:
   allowToChangeInstallationDirectory: true
   oneClick: false
   perMachine: true
+  installerIcon: ./build/icon.ico
 
 mac:
   target: dmg
-  icon: ./public/icon.png
+  icon: ./build/icon.ico
   artifactName: ${productName}-Setup-${version}.${ext}
   darkModeSupport: true
   signIgnore: null
@@ -41,5 +42,5 @@ linux:
   target:
     - AppImage
     - deb
-  icon: ./public/icon.png
+  icon: ./build/icon.ico
   artifactName: ${productName}-Setup-${version}.${ext}
