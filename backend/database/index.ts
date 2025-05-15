@@ -1,5 +1,8 @@
+import { app } from "electron";
+import { join } from "node:path";
 import { DataTypes, Sequelize } from "sequelize";
-import { databasePath } from "../utils";
+
+export const databasePath = join(app.getPath("userData"), "database.sqlite");
 
 export const sequelize = new Sequelize({
   dialect: "sqlite",

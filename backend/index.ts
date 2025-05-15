@@ -1,9 +1,10 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { join } from "node:path";
+import { prepareNext } from "sc-prepare-next";
 import { Model } from "sequelize";
-import { PORT } from "./constants";
+import { isDev, PORT } from "./constants";
 import { sequelize, User } from "./database";
-import { initLogs, isDev, prepareNext } from "./utils";
+import { initLogs } from "./utils";
 
 /**
  * Creates the main application window.

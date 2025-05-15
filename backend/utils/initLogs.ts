@@ -1,7 +1,8 @@
 import Logger from "electron-log";
 import { exec } from "node:child_process";
 import { join } from "node:path";
-import { databasePath } from "./databasePath";
+import { databasePath } from "../database";
+import { isDev } from "../constants";
 
 /**
  * Initializes the logs by executing a command to list the files in the specified directory.
@@ -15,7 +16,7 @@ export function initLogs(): void {
       ? `dir ${directoryPath}`
       : `ls -lah ${directoryPath}`;
 
-  exec(command, (error: any, stdout: any, stderr: any) => {
+  exec(command, (error: Error | null, stdout: string, stderr: string) => {
     if (error) {
       Logger.error(`ERROR IN ${command}:\n${error}`);
       Logger.error(`ERROR IN ${command} "stderr":\n${stderr}`);
@@ -26,4 +27,5 @@ export function initLogs(): void {
 
   Logger.info("DIRNAME: ", directoryPath);
   Logger.info("DATABASE: ", databasePath);
+  Logger.info("IS_DEV: ", isDev);
 }
