@@ -12,5 +12,11 @@
   "yaml.validate": true,
   "yaml.format.enable": true,
   "yaml.hover": true,
-  "yaml.completion": true
+  "yaml.completion": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": "./.vscode/bot/.copilot-commit-message-instructions.md"
+    }
+  ],
+  "github.copilot.chat.localeOverride": "en"
 }
