@@ -23,11 +23,11 @@
 
 <!-- Badge Start -->
 <div align="center">
- <img alt="static badge from nodejs" src="https://img.shields.io/badge/NodeJS-v22.15.0-44883e">
- <img alt="static badge from electronjs" src="https://img.shields.io/badge/ElectronJS-v36.2.0-46816e">
+ <img alt="static badge from nodejs" src="https://img.shields.io/badge/NodeJS-v22.16.0-44883e">
+ <img alt="static badge from electronjs" src="https://img.shields.io/badge/ElectronJS-v36.3.2-46816e">
  <img alt="static badge from electron builder" src="https://img.shields.io/badge/Electron%20Builder-v26.0.12-blue">
  <img alt="static badge from typescript" src="https://img.shields.io/badge/TypeScript-v5.8.3-blue">
- <img alt="static badge from nextjs" src="https://img.shields.io/badge/NextJS-v15.3.2-black">
+ <img alt="static badge from nextjs" src="https://img.shields.io/badge/NextJS-v15.3.3-black">
  <img alt="static badge from reactjs" src="https://img.shields.io/badge/ReactJS-v19.1.0-61DAFB">
  <img alt="static badge from sequelize" src="https://img.shields.io/badge/Sequelize-v6.37.7-52B0E7">
 </div>
@@ -55,17 +55,16 @@ npm run dev;
 - [Electronjs - documentation](https://www.electronjs.org/pt/docs/latest/)
 - [Any Linux Target](https://www.electron.build/linux)
 
-## NPM Commands
+## Scripts
 
-- `npm run dev`: Run Electron with development build.
-  - `npm run build:backend`: Build backend with TypeScript.
-  - `electron . --dev`: Run Electron with development build.
-- `npm run prebuild`: Remove build and dist directories.
-- `npm run build`: Build frontend and backend.
-  - `npm run build:frontend`: Build frontend with Next.js.
-  - `npm run build:backend`: Build backend with TypeScript.
-- `npm run postinstall`: Install dependencies for Electron.
-- `npm run dist`: Build and make a distribution package with Electron Builder.
+- `dev`: Run Electron with development build.
+- `build:backend`: Build backend with TypeScript.
+- `prebuild`: Remove build and dist directories.
+- `build`: Build frontend and backend.
+- `build:frontend`: Build frontend with Next.js.
+- `build:backend`: Build backend with TypeScript.
+- `postinstall`: Install dependencies for Electron.
+- `dist`: Build and make a distribution package with Electron Builder.
 
 ## electron-builder Configutarion to this project
 
