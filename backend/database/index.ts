@@ -1,12 +1,10 @@
-import { app } from "electron";
-import { join } from "node:path";
 import { DataTypes, Sequelize } from "sequelize";
+import { DATABASE_PATH } from "../constants";
 
-export const databasePath = join(app.getPath("userData"), "database.sqlite");
 
 export const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: databasePath,
+  storage: DATABASE_PATH,
   logging: false,
 });
 

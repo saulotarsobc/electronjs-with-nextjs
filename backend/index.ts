@@ -4,7 +4,7 @@ import { isDev, prepareNext } from "sc-prepare-next";
 import { Model } from "sequelize";
 import { PORT } from "./constants";
 import { sequelize, User } from "./database";
-import { initLogs } from "./utils";
+import { Channels } from "./preload";
 
 /**
  * Creates the main application window.
@@ -55,7 +55,6 @@ function createWindow(): void {
  * @returns {Promise<void>} A Promise that resolves when all the setup is done.
  */
 app.whenReady().then(async () => {
-  initLogs();
   await prepareNext("./frontend", PORT);
   await sequelize
     .sync({
@@ -83,7 +82,7 @@ app.on("window-all-closed", () => {
 });
 
 /* ++++++++++ code ++++++++++ */
-ipcMain.on("addUser", async (event, data: { dataValues: unknown }) => {
+ipcMain.on(Channels.ADD_USER, async (event, data: { dataValues: unknown }) => {
   await User.create(data)
     .then((data: Model) => {
       event.returnValue = {
