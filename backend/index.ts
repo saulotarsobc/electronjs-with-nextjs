@@ -4,7 +4,6 @@ import { isDev, prepareNext } from "sc-prepare-next";
 import { Model } from "sequelize";
 import { PORT } from "./constants";
 import { sequelize, User } from "./database";
-import { Channels } from "./preload";
 
 /**
  * Creates the main application window.
@@ -82,7 +81,7 @@ app.on("window-all-closed", () => {
 });
 
 /* ++++++++++ code ++++++++++ */
-ipcMain.on(Channels.ADD_USER, async (event, data: { dataValues: unknown }) => {
+ipcMain.on('add-user', async (event, data: { dataValues: unknown }) => {
   await User.create(data)
     .then((data: Model) => {
       event.returnValue = {

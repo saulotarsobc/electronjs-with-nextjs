@@ -1,8 +1,8 @@
-import { ApiType } from '../backend/preload'
+import { Api } from '../backend/preload'
 
 
 declare global {
     interface Window {
-        api: ApiType
+        api: Api
     }
 }
