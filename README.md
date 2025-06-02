@@ -5,6 +5,12 @@
 ---
 
 <div align="center">
+  <img alt="demo" src="./demo/demo.png">
+</div>
+
+---
+
+<div align="center">
   <img alt="Stars" src="https://img.shields.io/github/stars/saulotarsobc/electronjs-with-nextjs.svg">
   <img alt="Forks" src="https://img.shields.io/github/forks/saulotarsobc/electronjs-with-nextjs.svg">
 </div>
@@ -32,12 +38,6 @@
  <img alt="static badge from sequelize" src="https://img.shields.io/badge/Sequelize-v6.37.7-52B0E7">
 </div>
 <!-- Badge End -->
-
----
-
-<div align="center">
-  <img alt="demo" src="./demo/demo.png">
-</div>
 
 ---
 
