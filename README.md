@@ -68,50 +68,37 @@ npm run dev;
 
 ## electron-builder Configutarion to this project
 
-```yaml
-electronVersion: 34.2.0
-asar: true
-compression: normal
-productName: SC - Next Electron
-appId: br.com.electron.next
-
-extraMetadata:
-  main: dist/index.js
-
-files:
-  - dist
-  - frontend/out
-
-directories:
-  output: out
-
-publish:
-  - provider: github
-
-win:
-  target:
-    - nsis
-  icon: ./public/icon.png
-  artifactName: ${name}-${version}-windows-${arch}.${ext}
-
-nsis:
-  artifactName: ${name}-${version}-windows-${arch}-nsis-installer.${ext}
-  allowToChangeInstallationDirectory: true
-  oneClick: false
-  perMachine: true
-
-mac:
-  target: dmg
-  icon: ./public/icon.png
-  artifactName: ${productName}-Setup-${version}.${ext}
-  darkModeSupport: true
-
-linux:
-  target:
-    - AppImage
-    - deb
-  icon: ./public/icon.png
-  artifactName: ${productName}-Setup-${version}.${ext}
+```json
+...
+ "build": {
+    "appId": "br.com.electron.next",
+    "productName": "SC - Electron and Next",
+    "files": [
+      "dist"
+    ],
+    "directories": {
+      "output": "out"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "${name}-${version}-windows-${arch}.${ext}"
+    },
+    "mac": {
+      "target": "dmg",
+      "signIgnore": null,
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "artifactName": "${name}-${version}-linux-${arch}.${ext}"
+    }
+  }
+...
 ```
 
 ## Git Commands
