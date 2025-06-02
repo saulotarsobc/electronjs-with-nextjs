@@ -34,7 +34,7 @@
  <img alt="static badge from electron builder" src="https://img.shields.io/badge/Electron%20Builder-v26.0.12-blue">
  <img alt="static badge from typescript" src="https://img.shields.io/badge/TypeScript-v5.8.3-blue">
  <img alt="static badge from nextjs" src="https://img.shields.io/badge/NextJS-v15.3.3-black">
- <img alt="static badge from reactjs" src="https://img.shields.io/badge/ReactJS-v19.1.0-61DAFB">
+ <img alt="static badge from reactjs" src="https://img.shields.io/badge/ReactJS-v19.0.0-61DAFB">
  <img alt="static badge from sequelize" src="https://img.shields.io/badge/Sequelize-v6.37.7-52B0E7">
 </div>
 <!-- Badge End -->
