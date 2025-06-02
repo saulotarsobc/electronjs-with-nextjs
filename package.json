@@ -13,13 +13,14 @@
   },
   "scripts": {
     "dev": "yarn build:backend && electron . --dev",
-    "prebuild": "rimraf out && rimraf dist",
+    "clear": "rimraf out && rimraf dist",
     "build:frontend": "next build src",
     "build:backend": "tsc -p backend",
     "build": "yarn build:frontend && yarn build:backend",
     "postinstall": "electron-builder install-app-deps",
-    "dist": "yarn build && electron-builder",
-    "update:readme": "tsx scripts/update-readme.js"
+    "update:readme": "tsx scripts/update-readme.js",
+    "dist:clear": "yarn clear && yarn build && electron-builder",
+    "dist": "yarn build && electron-builder"
   },
   "dependencies": {
     "app-root-path": "^3.1.0",
@@ -34,6 +35,8 @@
     "@types/react-dom": "^19.1.5",
     "electron": "^36.3.2",
     "electron-builder": "^26.0.12",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.3",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

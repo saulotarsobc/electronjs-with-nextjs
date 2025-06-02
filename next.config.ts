@@ -4,12 +4,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
   distDir: "../dist/frontend",
+  assetPrefix: "./",
   images: {
     unoptimized: true,
-  },
-  assetPrefix: "./",
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 };
 
