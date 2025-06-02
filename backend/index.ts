@@ -39,7 +39,6 @@ function createWindow(): void {
 
   if (app.isPackaged) {
     win.loadFile(join(__dirname, "..", "..", "dist", "frontend", "index.html"));
-    win.setMenu(null);
   } else {
     win.loadURL(`http://localhost:${PORT}/`);
     win.webContents.openDevTools();
