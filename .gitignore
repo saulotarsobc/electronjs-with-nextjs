@@ -1,5 +1,4 @@
 /node_modules
-/frontend/out
-/frontend/.next
 /dist
 /out
+/src/.next

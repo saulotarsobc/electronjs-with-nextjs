@@ -36,12 +36,11 @@ function createWindow(): void {
   });
 
   if (app.isPackaged) {
-    win.loadFile(join(__dirname, "..", "dist", "frontend", "index.html"));
-    win.setMenu(null);
+    win.loadFile(join(__dirname, "..", "..", "dist", "frontend", "index.html"));
+    // win.setMenu(null);
   } else {
     win.loadURL(`http://localhost:${PORT}/`);
     win.webContents.openDevTools();
-    win.maximize();
   }
 }
 
@@ -54,7 +53,8 @@ function createWindow(): void {
  * @returns {Promise<void>} A Promise that resolves when all the setup is done.
  */
 app.whenReady().then(async () => {
-  await prepareNext("./frontend", PORT);
+  await prepareNext("./src", PORT);
+
   await sequelize
     .sync({
       logging: true,
