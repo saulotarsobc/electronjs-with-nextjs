@@ -1,4 +1,4 @@
-# ElectronJS with NextJS
+# SC - Electron and Next
 
 > A template to build an ElectronJS app with NextJS
 

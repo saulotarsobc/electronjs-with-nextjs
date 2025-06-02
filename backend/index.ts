@@ -1,6 +1,6 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { join } from "node:path";
-import { isDev, prepareNext } from "sc-prepare-next";
+import { prepareNext } from "sc-prepare-next";
 import { Model } from "sequelize";
 import { PORT } from "./constants";
 import { sequelize, User } from "./database";
@@ -35,13 +35,13 @@ function createWindow(): void {
     },
   });
 
-  if (isDev) {
+  if (app.isPackaged) {
+    win.loadFile(join(__dirname, "..", "dist", "frontend", "index.html"));
+    win.setMenu(null);
+  } else {
     win.loadURL(`http://localhost:${PORT}/`);
     win.webContents.openDevTools();
     win.maximize();
-  } else {
-    win.loadFile(join(__dirname, "..", "frontend", "out", "index.html"));
-    win.setMenu(null);
   }
 }
 
@@ -81,7 +81,7 @@ app.on("window-all-closed", () => {
 });
 
 /* ++++++++++ code ++++++++++ */
-ipcMain.on('add-user', async (event, data: { dataValues: unknown }) => {
+ipcMain.on("add-user", async (event, data: { dataValues: unknown }) => {
   await User.create(data)
     .then((data: Model) => {
       event.returnValue = {

@@ -1,11 +1,11 @@
 {
   "name": "sc-next-electron",
-  "displayName": "Electronjs with Nextjs",
+  "displayName": "SC - Electron and Next",
   "version": "10.0.3",
-  "description": "Electronjs with Nextjs",
+  "description": "SC - Electron and Next",
   "private": false,
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/backend/index.js",
   "author": {
     "name": "Saulo Costa",
     "email": "saulotarsobc@gmail.com",
@@ -13,12 +13,12 @@
   },
   "scripts": {
     "dev": "yarn build:backend && electron . --dev",
-    "prebuild": "rimraf out && rimraf dist && rimraf frontend/.next && rimraf frontend/out",
-    "build": "yarn build:frontend && yarn build:backend",
+    "prebuild": "rimraf out && rimraf dist",
     "build:frontend": "next build frontend",
     "build:backend": "tsc -p backend",
+    "build": "yarn build:frontend && yarn build:backend",
     "postinstall": "electron-builder install-app-deps",
-    "dist": "yarn build && npx electron-builder",
+    "dist": "yarn build && electron-builder",
     "update:readme": "tsx scripts/update-readme.js"
   },
   "dependencies": {
@@ -47,5 +47,33 @@
     "tailwindcss": "^4.1.8",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
+  },
+  "build": {
+    "appId": "br.com.electron.next",
+    "productName": "SC - Electron and Next",
+    "files": [
+      "dist"
+    ],
+    "directories": {
+      "output": "out"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "${name}-${version}-windows-${arch}.${ext}"
+    },
+    "mac": {
+      "target": "dmg",
+      "signIgnore": null,
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "artifactName": "${name}-${version}-linux-${arch}.${ext}"
+    }
   }
 }
