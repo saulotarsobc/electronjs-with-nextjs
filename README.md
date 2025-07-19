@@ -2,9 +2,7 @@
 
 > A template to build an ElectronJS app with NextJS
 
-⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 ⚠️ See also [electron-with-vite](https://github.com/saulotarsobc/electron-with-vite)
-⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 
 ---
 
