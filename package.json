@@ -13,34 +13,39 @@
   },
   "scripts": {
     "dev": "yarn build:backend && electron . --dev",
-    "prebuild": "rimraf out && rimraf dist",
+    "lint": "next lint",
+    "clear": "rimraf out && rimraf dist",
     "build:frontend": "next build src",
     "build:backend": "tsc -p backend",
     "build": "yarn build:frontend && yarn build:backend",
     "postinstall": "electron-builder install-app-deps",
-    "dist": "yarn build && electron-builder",
-    "update:readme": "tsx scripts/update-readme.js"
+    "update:readme": "tsx scripts/update-readme.js",
+    "dist:clear": "yarn clear && yarn build && electron-builder",
+    "dist": "yarn build && electron-builder"
   },
   "dependencies": {
     "app-root-path": "^3.1.0",
-    "electron-log": "^5.4.0",
+    "electron-log": "^5.4.1",
     "sc-prepare-next": "^1.0.3",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "@types/node": "^22.15.29",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.5",
-    "electron": "^36.3.2",
+    "@types/node": "^24.0.15",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "electron": "^37.2.3",
     "electron-builder": "^26.0.12",
-    "next": "15.3.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "15.4.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "rimraf": "^6.0.1",
-    "tailwindcss": "^4.1.8",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3"
+    "tailwindcss": "^4.1.11",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.2",
+    "@eslint/eslintrc": "^3"
   },
   "build": {
     "appId": "br.com.electron.next",

@@ -26,6 +26,8 @@ import { sequelize, User } from "./database";
  */
 function createWindow(): void {
   const win = new BrowserWindow({
+    title: "SC - Electron and Next",
+    icon: "./build/icon.png",
     width: 900,
     height: 700,
     webPreferences: {
@@ -37,7 +39,6 @@ function createWindow(): void {
 
   if (app.isPackaged) {
     win.loadFile(join(__dirname, "..", "..", "dist", "frontend", "index.html"));
-    win.setMenu(null);
   } else {
     win.loadURL(`http://localhost:${PORT}/`);
     win.webContents.openDevTools();
@@ -55,18 +56,13 @@ function createWindow(): void {
 app.whenReady().then(async () => {
   await prepareNext("./src", PORT);
 
-  await sequelize
-    .sync({
-      logging: true,
-      alter: true,
-      // this is used for development.
-      // If you want to reset the database, set this to true and run the script again.
-      // Otherwise, set it to false.
-      force: false,
-    })
-    .then(() => {
-      console.log("Database synced");
-    });
+  await sequelize.sync({
+    logging: app.isPackaged ? false : true,
+    alter: true,
+    // The 'force' option is used for development.
+    // If you want to reset the database, set this to true and run the script again. Otherwise, set it to false.
+    force: false,
+  });
 
   createWindow();
 
