@@ -3,3 +3,4 @@
 /out
 /src/.next
 tsconfig.tsbuildinfo
+src/next-env.d.ts
