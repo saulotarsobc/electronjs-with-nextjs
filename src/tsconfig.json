@@ -23,6 +23,12 @@
       }
     ]
   },
-  "include": ["../next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "../next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../dist/frontend/types/**/*.ts",
+    "../dist/frontend/dev/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
