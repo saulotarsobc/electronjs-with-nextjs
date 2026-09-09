@@ -1,9 +1,24 @@
 import { app, BrowserWindow, ipcMain } from "electron";
-import { join } from "node:path";
+import { join, sep } from "node:path";
+import { pathToFileURL } from "node:url";
 import { prepareNext } from "sc-prepare-next";
-import { Model } from "sequelize";
 import { PORT } from "./constants";
 import { sequelize, User } from "./database";
+
+const ADD_USER_CHANNEL = "users:add";
+
+interface AddUserRequest {
+  name: string;
+}
+
+function isAddUserRequest(value: unknown): value is AddUserRequest {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "name" in value &&
+    typeof value.name === "string"
+  );
+}
 
 /**
  * Creates the main application window.
@@ -25,6 +40,16 @@ import { sequelize, User } from "./database";
  * the path to the main application HTML file, and the menu is set to null.
  */
 function createWindow(): void {
+  const rendererPath = join(
+    __dirname,
+    "..",
+    "..",
+    "dist",
+    "frontend",
+    "index.html",
+  );
+  const rendererDirectoryUrl = pathToFileURL(join(rendererPath, "..") + sep).href;
+  const developmentOrigin = `http://localhost:${PORT}`;
   const win = new BrowserWindow({
     title: "SC - Electron and Next",
     icon: "./build/icon.png",
@@ -33,14 +58,28 @@ function createWindow(): void {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
+      sandbox: true,
+      webSecurity: true,
       preload: join(__dirname, "preload.js"),
     },
   });
 
+  win.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
+  win.webContents.on("will-navigate", (event, url) => {
+    const isAllowed = app.isPackaged
+      ? url.startsWith(rendererDirectoryUrl)
+      : new URL(url).origin === developmentOrigin;
+
+    if (!isAllowed) event.preventDefault();
+  });
+  win.webContents.session.setPermissionRequestHandler(
+    (_webContents, _permission, callback) => callback(false),
+  );
+
   if (app.isPackaged) {
-    win.loadFile(join(__dirname, "..", "..", "dist", "frontend", "index.html"));
+    void win.loadFile(rendererPath);
   } else {
-    win.loadURL(`http://localhost:${PORT}/`);
+    void win.loadURL(`${developmentOrigin}/`);
     win.webContents.openDevTools();
   }
 }
@@ -54,11 +93,13 @@ function createWindow(): void {
  * @returns {Promise<void>} A Promise that resolves when all the setup is done.
  */
 app.whenReady().then(async () => {
-  await prepareNext("./src", PORT);
+  if (!app.isPackaged) {
+    await prepareNext("./src", PORT);
+  }
 
   await sequelize.sync({
     logging: app.isPackaged ? false : true,
-    alter: true,
+    alter: !app.isPackaged,
     // The 'force' option is used for development.
     // If you want to reset the database, set this to true and run the script again. Otherwise, set it to false.
     force: false,
@@ -77,18 +118,34 @@ app.on("window-all-closed", () => {
 });
 
 /* ++++++++++ code ++++++++++ */
-ipcMain.on("add-user", async (event, data: { dataValues: unknown }) => {
-  await User.create(data)
-    .then((data: Model) => {
-      event.returnValue = {
-        error: false,
-        data: data.dataValues,
-      };
-    })
-    .catch((error) => {
-      event.returnValue = {
-        error: true,
-        data: error,
-      };
-    });
+ipcMain.handle(ADD_USER_CHANNEL, async (_event, payload: unknown) => {
+  if (!isAddUserRequest(payload)) {
+    return { ok: false, error: "Invalid user data." } as const;
+  }
+
+  const name = payload.name.trim();
+  if (name.length === 0 || name.length > 100) {
+    return {
+      ok: false,
+      error: "Name must contain between 1 and 100 characters.",
+    } as const;
+  }
+
+  try {
+    const createdUser = await User.create({ name });
+    const data = createdUser.get({ plain: true });
+
+    return {
+      ok: true,
+      data: {
+        id: data.id,
+        name: data.name,
+        createdAt: new Date(data.createdAt).toISOString(),
+        updateTimestamp: new Date(data.updateTimestamp).toISOString(),
+      },
+    } as const;
+  } catch (error) {
+    console.error("Failed to create user", error);
+    return { ok: false, error: "Unable to add user." } as const;
+  }
 });

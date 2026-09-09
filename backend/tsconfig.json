@@ -6,12 +6,9 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "lib": ["dom", "es2017"],
+    "module": "Node16",
+    "moduleResolution": "Node16",
     "noEmit": false,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
@@ -23,12 +20,6 @@
     "outDir": "../dist/backend",
     "removeComments": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"]
 }

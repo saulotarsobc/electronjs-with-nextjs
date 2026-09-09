@@ -1,22 +1,19 @@
-import { CreateUserResponse, User } from "@/interfaces";
+import { User } from "@/interfaces";
 import { useState } from "react";
 
 export default function Home() {
   const [user, setUser] = useState<User | null>(null);
 
-  const addUser = () => {
-    const response = window.api.sendSync("add-user", {
-      name: "Saulo Costa",
-    }) as CreateUserResponse;
+  const addUser = async () => {
+    try {
+      const response = await window.api.addUser("Saulo Costa");
 
-    if (!response) {
-      alert("Error adding user!");
-      return;
-    }
-
-    if (!response.error) {
-      setUser(response.data);
-    } else {
+      if ("error" in response) {
+        alert(response.error);
+      } else {
+        setUser(response.data);
+      }
+    } catch {
       alert("Error adding user!");
     }
   };

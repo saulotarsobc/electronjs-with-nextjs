@@ -15,7 +15,7 @@ const dependencies = {
   Sequelize: packageJson.dependencies.sequelize,
 };
 
-const badgeColors = {
+const badgeColors: Record<string, string> = {
   ElectronJS: "46816e",
   "Electron Builder": "blue",
   NodeJS: "44883e",
@@ -29,12 +29,12 @@ const badges = Object.entries(dependencies).map(([name, version]) => {
   if (typeof version === "string") {
     return ` <img alt="static badge from ${name.toLocaleLowerCase()}" src="https://img.shields.io/badge/${name.replace(
       / /g,
-      "%20"
+      "%20",
     )}-v${version.replace("^", "")}-${badgeColors[name]}">`;
   }
   return ` <img alt="static badge from ${name.toLocaleLowerCase()}" src="https://img.shields.io/badge/${name.replace(
     / /g,
-    "%20"
+    "%20",
   )}-vN/A-${badgeColors[name]}">`;
 });
 
@@ -50,7 +50,7 @@ const badgeEnd = "<!-- Badge End -->";
 
 const updatedReadmeContent = readmeContent.replace(
   new RegExp(`${badgeStart}[\\s\\S]*?${badgeEnd}`),
-  `${badgeStart}\n${badgesString}\n${badgeEnd}`
+  `${badgeStart}\n${badgesString}\n${badgeEnd}`,
 );
 
 writeFileSync(readmePath, updatedReadmeContent, "utf-8");

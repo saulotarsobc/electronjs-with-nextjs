@@ -1,8 +1,12 @@
 {
   "name": "sc-next-electron",
   "displayName": "SC - Electron and Next",
-  "version": "11.0.1",
+  "version": "11.0.2",
   "description": "SC - Electron and Next",
+  "packageManager": "npm@11.17.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "private": false,
   "license": "MIT",
   "main": "dist/backend/index.js",
@@ -12,44 +16,57 @@
     "url": "https://github.com/saulotarsobc"
   },
   "scripts": {
-    "dev": "yarn build:backend && electron . --dev",
-    "lint": "next lint",
+    "dev": "npm run build:backend && electron . --dev",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit && tsc -p backend --noEmit",
     "clear": "rimraf out && rimraf dist",
     "build:frontend": "next build src",
     "build:backend": "tsc -p backend",
-    "build": "yarn build:frontend && yarn build:backend",
+    "build": "npm run build:frontend && npm run build:backend",
     "postinstall": "electron-builder install-app-deps",
-    "update:readme": "tsx scripts/update-readme.js",
-    "dist:clear": "yarn clear && yarn build && electron-builder",
-    "dist": "yarn build && electron-builder"
+    "update:readme": "tsx scripts/update-readme.ts",
+    "dist:clear": "npm run clear && npm run build && electron-builder",
+    "dist": "npm run build && electron-builder"
   },
   "dependencies": {
-    "app-root-path": "^3.1.0",
-    "electron-log": "^5.4.1",
-    "sc-prepare-next": "^1.0.3",
-    "sequelize": "^6.37.7",
-    "sqlite3": "^5.1.7"
+    "sc-prepare-next": "^1.1.0",
+    "sequelize": "^6.37.8",
+    "sqlite3": "^6.0.1"
   },
   "devDependencies": {
-    "@types/node": "^24.0.15",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "electron": "^37.2.3",
-    "electron-builder": "^26.0.12",
-    "next": "15.4.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "rimraf": "^6.0.1",
-    "tailwindcss": "^4.1.11",
-    "tsx": "^4.20.3",
-    "typescript": "^5.8.3",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.2",
-    "@eslint/eslintrc": "^3"
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "electron": "^44.3.0",
+    "electron-builder": "^26.15.3",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.3.4",
+    "next": "16.3.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "rimraf": "^6.1.3",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "sequelize": {
+      "uuid": "11.1.1"
+    }
+  },
+  "allowScripts": {
+    "electron@44.3.0": true,
+    "electron-winstaller@5.4.0": true,
+    "esbuild@0.28.2": true,
+    "fsevents@2.3.3": true,
+    "sharp@0.35.4": true,
+    "sqlite3@6.0.1": true,
+    "unrs-resolver@1.12.2": true
   },
   "build": {
     "appId": "br.com.electron.next",
     "productName": "SC - Electron and Next",
+    "asar": true,
     "files": [
       "dist"
     ],
